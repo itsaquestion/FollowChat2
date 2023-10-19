@@ -19,7 +19,7 @@ speech_synthesizer = speechsdk.SpeechSynthesizer(
     speech_config=speech_config, audio_config=None)
 
 
-def text_to_audio(text, speaker, style='chat', style_degree='0.1', debug=False):
+def text_to_audio(text, speaker, style='chat', style_degree='0.3', debug=False):
     """字符转为语音
 
     Args:

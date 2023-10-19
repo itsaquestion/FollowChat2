@@ -9,7 +9,7 @@ def remove_inner_content(text):
     return re.sub(r'\[(.*?)\]', '[]', text)
 
 
-def generate_multi_style_summaries(content, show=True):
+def generate_multi_style_summaries(content,temp=0.2, show=True):
     """从文本中生成专业英语、简单英语和口语版本的总结。如果输入一个网页，LLM会帮你读出来，但BBC的网址会出错。
 
     Args:
@@ -31,27 +31,27 @@ def generate_multi_style_summaries(content, show=True):
     - 你是一个英语教育专家，特长是面向第二语言的英语口语和写作教育。请把上述新闻，写成3种英语学习材料，分步骤进行：
 
     step 0: 提取新闻的标题，总结成较短的标题，包含新闻来源。
-    step 1: 新闻总结，250单词，专业英语。
-    step 2: 简单英语版本，面向第二语言的学习者，250单词。
-    step 3: 口语化版本，使用 TED Talks 的语音风格，作为英语学习者的口语练习材料，250单词。
+    step 1: 新闻总结，专业英语，250单词
+    step 2: 简单英语版本，面向第二语言的学习者，250单词
+    step 3: 口语化版本，使用 TED Talks 的语音风格，作为英语学习者的口语练习材料，250单词
     
     - generate 3 summeries, strict adherence to formatting examples.
         
     - Formatting Example:
     [Step 0: Relative short Title includes the source]
     Title here.
-    [Step 1: News Summary, 250 words, professional English]
+    [Step 1: 250 words News Summary, professional English]
     summary here
-    [Step 2: Simplified English for Second Language Learners, 250 words]
+    [Step 2: 250 words Simplified English for Second Language Learners]
     summary here
-    [Step 3: Spoken English for Language Learners, TED Talks' style, 250 words]
+    [Step 3: 250 words Spoken English for Language Learners, TED Talks' style]
     summary here
 
     """)
     
     print(summarize_prompt)
 
-    summaries = gen_g35(system_msg, summarize_prompt, temp=0.3, show=show)
+    summaries = gen_g35(system_msg, summarize_prompt, temp=temp, show=show)
 
     result = remove_inner_content(summaries).strip().split("[]")
 
@@ -60,7 +60,7 @@ def generate_multi_style_summaries(content, show=True):
     ret = {'title': result[0],
            'pro': result[1],
            'simplified': result[2],
-           'spoken': result[3]}
+           'spoken': result[3].replace('\n','')}
 
     return ret
 
