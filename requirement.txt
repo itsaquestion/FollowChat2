@@ -1,0 +1,9 @@
+azure-cognitiveservices-speech
+python-dotenv
+pydub
+openai
+ipykernel
+pytest
+bs4
+pandas
+GoogleNews

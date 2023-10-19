@@ -1,0 +1,43 @@
+data/output/
+data/fragments/
+.env
+.pytest_cache/
+
+# Python
+*.pyc
+__pycache__/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+.idea/
+.vscode/
+
+# R
+*.Rproj.user/
+*.Rhistory
+.RData
+.Ruserdata
+.Renviron
+
+# Docker
+.DS_Store
+docker-compose.yml
+docker-compose.override.yml
+docker-compose.override.yml
+/.dockerignore
+/docker-compose.override.yml
+/docker-compose.override.yml
+/docker-compose.override.yml
+
+# IDE
+# 根据您使用的IDE添加适当的规则
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# RStudio
+.Rproj.user/
