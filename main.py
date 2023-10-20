@@ -15,6 +15,8 @@ urls = ['https://www.reuters.com/technology/google-pushes-deeper-into-ai-publish
 url = 'https://www.wsj.com/economy/housing/china-stabilizes-in-the-shadow-of-country-garden-and-evergrande-7574010a'
 # url = 'https://www.wsj.com/livecoverage/stock-market-news-today-10-19-2023/card/gamestop-stock-drops-poised-for-lowest-close-since-august-2022-Qjol6aOy7I0Z25mL1ZqS'
 
+url = 'https://www.economist.com/china/2023/10/19/a-landslip-in-hong-kong-fuels-resentment-of-the-rich'
+
 print('\n生成总结 =======')
 
 content = get_news_content(url)
@@ -29,11 +31,11 @@ new_script = process_chat('Aria: ' + multi_summaries['spoken'])
 new_script = 'Jenny: ' + multi_summaries['title'] + '\n' + new_script
 print(new_script)
 
-print('\n生成音频 =======')
-script_to_wav_files(new_script)
+# print('\n生成音频 =======')
+# script_to_wav_files(new_script)
 
-print('\n合并音频 =======')
-today = datetime.today()
-file_name = sanitize_filename(today.strftime(
-    "%Y%m%d") + "_" + "News_" + multi_summaries['title'] + '.mp3').replace('..', '.')
-combine_wav(file_name)
+# print('\n合并音频 =======')
+# today = datetime.today()
+# file_name = sanitize_filename(today.strftime(
+#     "%Y%m%d") + "_" + "News_" + multi_summaries['title'] + '.mp3').replace('..', '.')
+# combine_wav(file_name)

@@ -23,8 +23,7 @@ def get_news_from_media(keywords, media):
 
     # print(df[['date','title','media','link']].query(f'media.str.contains("{media}")'))
 
-    result = df.query(f'date.str.contains("hours") and media.str.contains("{media}") and (not link.str.contains("video|podcasts"))')[
-        ['date', 'datetime', 'title', 'link']]
+    result = df.query(f'date.str.contains("hours") and media.str.contains("{media}") and (not link.str.contains("video|podcasts|livecoverage"))')[['date', 'datetime', 'title', 'link']]
 
     return result
 
@@ -38,6 +37,7 @@ get_news_wsj = partial(get_news_from_media, media='Wall Street Journal')
 get_news_scmp = partial(
     get_news_from_media, media='South China Morning Post')
 
+get_news_econ = partial(get_news_from_media, media='The Economist')
 
 def pick_news():
 
@@ -57,7 +57,7 @@ def pick_news():
 
 
 if __name__ == "__main__":
-    print(get_news_wsj('business news').head())
+    print(get_news_econ('news').head())
     # print(get_news_scmp('tech news').head())
 
     # print(pick_news())
