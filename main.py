@@ -13,6 +13,7 @@ urls = ['https://www.reuters.com/technology/google-pushes-deeper-into-ai-publish
 
 # urls[0]
 url = 'https://www.wsj.com/economy/housing/china-stabilizes-in-the-shadow-of-country-garden-and-evergrande-7574010a'
+# url = 'https://www.wsj.com/livecoverage/stock-market-news-today-10-19-2023/card/gamestop-stock-drops-poised-for-lowest-close-since-august-2022-Qjol6aOy7I0Z25mL1ZqS'
 
 print('\n生成总结 =======')
 

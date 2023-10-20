@@ -21,6 +21,8 @@ def get_news_from_media(keywords, media):
     if (len(df) == 0):
         raise "没数据，可能刷新太多了"
 
+    # print(df[['date','title','media','link']].query(f'media.str.contains("{media}")'))
+
     result = df.query(f'date.str.contains("hours") and media.str.contains("{media}") and (not link.str.contains("video|podcasts"))')[
         ['date', 'datetime', 'title', 'link']]
 
@@ -55,7 +57,7 @@ def pick_news():
 
 
 if __name__ == "__main__":
-    print(get_news_wsj('tech news').head())
+    print(get_news_wsj('business news').head())
     # print(get_news_scmp('tech news').head())
 
     # print(pick_news())
