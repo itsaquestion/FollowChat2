@@ -60,7 +60,8 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     ret = {'title': result[0],
            'pro': result[1],
            'simplified': result[2],
-           'spoken': result[3].replace('\n','')}
+           'spoken': result[3].replace('\n',''),
+           'raw': summaries}
 
     return ret
 
