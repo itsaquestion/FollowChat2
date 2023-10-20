@@ -37,6 +37,8 @@ def merge_mp3_files_in_directory(directory_path):
 
         combined.export(output_path, format="mp3",
                         codec="libmp3lame", parameters=["-q:a", "0"])
+    
+    return output_path
 
 
 def combine_wav(file_name, input_dir='data/fragments', output_dir='data/output'):

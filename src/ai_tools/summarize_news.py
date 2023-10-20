@@ -49,7 +49,7 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
 
     """)
     
-    print(summarize_prompt)
+    if show: print(summarize_prompt)
 
     summaries = gen_g35(system_msg, summarize_prompt, temp=temp, show=show)
 

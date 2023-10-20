@@ -1,17 +1,16 @@
 # %%
-from src.ms_tts.audio_tools import merge_mp3_files_in_directory
+from src.ms_tts.audio_tools import merge_mp3_files_in_directory, combine_wav
 from src.web_tools import get_news_content
 from src.ai_tools.summarize_news import generate_multi_style_summaries
 from src.dialogue_script_processor import process_chat
 from src.ms_tts.text_to_audio import script_to_wav_files
-from src.ms_tts.audio_tools import combine_wav
-from src.utils import sanitize_filename
+from src.utils import *
 from datetime import datetime
-from src.web_tools import google_news
+
 import os
 
 
-def gen_audio_from_page(url):
+def gen_audio_from_page(url, show=False):
     """
     从新闻连接中生成音频文件
     """
@@ -23,7 +22,7 @@ def gen_audio_from_page(url):
         get_news_content(url)
 
     multi_summaries = generate_multi_style_summaries(
-        content, temp=0.2, show=False)
+        content, temp=0.2, show=show)
 
     if not os.path.exists('data/scripts'):
         os.mkdir('data/scripts')
@@ -33,7 +32,7 @@ def gen_audio_from_page(url):
         "%Y%m%d") + "_" + "News_" + multi_summaries['title'])
 
     file_name = (base_name + '.txt').replace('..', '.')
-    with open('data/script/' + file_name, 'w') as f:
+    with open('data/scripts/' + file_name, 'w') as f:
         f.write(multi_summaries['raw'])
 
     print('')
@@ -52,22 +51,15 @@ def gen_audio_from_page(url):
     combine_wav(file_name)
     print('完成')
 
-# %%
 
+def gen_album(urls, tag=None):
+    """合并新闻，添加一个tag，并移动到album"""
+    setup_dirs()
 
-news_info = google_news.get_news_scmp('').head()[['title', 'link']]
+    for url in urls:
+        gen_audio_from_page(url, show=False)
 
-urls = news_info['link']
+    print('\n合并音频 ====')
+    merged_file = merge_mp3_files_in_directory('data/output')
 
-# %%
-# 如果output文件夹存在，则删除
-if not os.path.exists('data'):
-    os.mkdir('data')
-
-for url in urls:
-    gen_audio_from_page(url)
-# %%
-
-merge_mp3_files_in_directory('data/output')
-
-# %%
+    move_and_tag(merged_file, 'data/album', tag)
