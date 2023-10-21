@@ -51,8 +51,15 @@ def combine_wav(file_name, input_dir='data/fragments', output_dir='data/output')
 
     # 遍历每个音频文件
     for audio_file in audio_files:
+        print(audio_file)
         # 加载音频
-        audio = AudioSegment.from_wav(os.path.join(input_dir, audio_file))
+        try:
+            # 尝试加载音频
+            audio = AudioSegment.from_wav(os.path.join(input_dir, audio_file))
+        except:
+            # 如果出现错误，则跳过这个音频文件，并继续下一个
+            print(f"Error loading {audio_file}. Skipping.")
+            continue
 
         # 创建一个等长的静音段
         silence = AudioSegment.silent(duration=len(audio))
@@ -71,3 +78,6 @@ def combine_wav(file_name, input_dir='data/fragments', output_dir='data/output')
     combined_audio.export(output_path, format="mp3", bitrate='256k')
 
     output_path
+
+if __name__ == "__main__":
+    combine_wav('test.mp3')

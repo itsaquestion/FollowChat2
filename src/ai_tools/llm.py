@@ -24,7 +24,7 @@ def gen(system_msg, user_msg, temp=0.2,  show=True, model='openai/gpt-3.5-turbo'
                                                       {"role": "user", "content": user_msg}],
                                             headers={"HTTP-Referer": 'https://py4ss.net',  # To identify your app
                                                      "X-Title": 'FollowChat2'},
-                                            max_tokens=4096,
+                                            max_tokens=2048,
                                             stream=True, temperature=temp)
     collected_messages = []
     for chunk in response:

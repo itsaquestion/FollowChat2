@@ -27,7 +27,27 @@ def split_sentences(text):
     # Remove any empty strings that may have been added to the list
     sentences = [s for s in sentences if s]
 
-    return sentences
+    abbreviations = ['Dr.', 'Mr.', 'Mrs.', 'Ms.', 'Jr.', 'Sr.', 'U.S.', 'e.g.', 'i.e.', 'etc.', 'a.m.', 'p.m.']
+    
+    # Initialize the list to store the final sentences
+    final_sentences = []
+
+    # Loop through the initial list of sentences to refine them
+    for i, sentence in enumerate(sentences):
+        # If the sentence ends with an abbreviation, merge it with the next sentence
+        if any(sentence.endswith(abbr) for abbr in abbreviations):
+            try:
+                sentences[i+1] = sentence + ' ' + sentences[i+1]
+            except IndexError:
+                # Handle the case where the abbreviation is at the end of the text
+                final_sentences.append(sentence)
+        else:
+            final_sentences.append(sentence)
+
+    # Remove any empty strings that may have been added to the list
+    final_sentences = [s for s in final_sentences if s]
+    
+    return final_sentences
 
 
 def split_by_comma(sentences):
@@ -112,4 +132,8 @@ if __name__ == "__main__":
             return f.read()
 
     chat_script = read_sample_chat()
-    print(process_chat(chat_script))
+    # print(process_chat(chat_script))
+    
+    text = "So, there's this U.S. soldier, right? He was just released from North Korea, which is a big deal. But guess what? Now he's in trouble back home. Turns out, he's facing charges related to child pornography. Yeah, not good. The soldier, we don't know his name, was arrested as soon as he got back to the U.S. The charges are all about him having and sharing explicit pictures of kids. Yikes! His lawyer hasn't said anything about it yet. People are really concerned about how soldiers who were held captive in other countries are checked before they come back. Like, what if they're dangerous? This whole thing is putting a damper on the celebration of his release from North Korea. It was supposed to be a positive thing for the ongoing diplomatic efforts between the two countries. But now, these charges are stealing the spotlight. The soldier is gonna have a military trial, and if he's found guilty, he could be in big trouble. Like, prison and getting kicked out of the military kind of trouble."
+    
+    print(process_chat('Aria: '+ text))

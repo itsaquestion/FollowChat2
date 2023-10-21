@@ -4,7 +4,7 @@ import pandas as pd
 from functools import partial
 
 
-def get_news_from_media(keywords, media):
+def get_news_from_media(keywords, media, media_filter = None):
     """从指定媒体抓取新闻
 
     >>> len(get_news_from_media('tech news','BBC')) > 0
@@ -14,18 +14,28 @@ def get_news_from_media(keywords, media):
     """
     googlenews = GoogleNews(period='2d')
 
-    googlenews.search(media + ' ' + keywords)
+    query = '"' +  media + '" ' + keywords
+        
+    print("Search: " + query)
+    
+    googlenews.search(query)
 
     df = pd.DataFrame(googlenews.results())
+    
+    print(df[['date','title','media']])
 
     if (len(df) == 0):
         raise "没数据，可能刷新太多了"
 
+
     # print(df[['date','title','media','link']].query(f'media.str.contains("{media}")'))
+
+    if media_filter is None:
+        media_filter = media
 
     query_str = (
         'date.str.contains("hours") and '
-        f'media.str.contains("{media}") and '
+        f'media.str.contains("{media_filter}") and '
         '(not link.str.contains("video|podcasts|livecoverage"))'
     )
     columns_to_select = ['date', 'datetime', 'title', 'link']
@@ -39,7 +49,7 @@ get_news_bbc = partial(get_news_from_media, media='BBC')
 
 get_news_reuters = partial(get_news_from_media, media='Reuters')
 
-get_news_wsj = partial(get_news_from_media, media='Wall Street Journal')
+get_news_wsj = partial(get_news_from_media, media='The Wall Street Journal', media_filter = "Wall Street")
 
 get_news_scmp = partial(
     get_news_from_media, media='South China Morning Post')

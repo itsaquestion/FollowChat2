@@ -5,6 +5,8 @@ if __name__ == '__main__':
     
     news_info = google_news.get_news_scmp('').head(5)[['title', 'link']]
 
+    print(news_info)
+    
     urls = news_info['link']
     
     gen_album(urls,'scmp')

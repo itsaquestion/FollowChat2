@@ -7,3 +7,4 @@ pytest
 bs4
 pandas
 GoogleNews
+Flask

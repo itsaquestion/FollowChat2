@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'AGaramond Pro';
+  src: url('/static/fonts/AGaramondPro-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Exchange';
+  src: url('/static/fonts/Exchange-Book.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Exchange';
+  src: url('/static/fonts/Exchange-BookItalic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Exchange';
+  src: url('/static/fonts/Exchange-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Exchange';
+  src: url('/static/fonts/Exchange-MediumItalic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 500;
+  font-display: optional;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+.file-list {
+  flex: 1;
+  background-color: #f7f7f7;
+  padding: 15px;
+  overflow-y: auto;
+}
+.file-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+.file-list ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  overflow-y: auto;  /* Enable vertical scrolling */ font-size: 14px;
+}
+.file-list ul li:hover {
+  background-color: #ddd;
+}
+.file-content {
+  font-family: Exchange, serif;
+  font-size: 16px;
+  line-height: 1.6;
+
+  flex: 2;
+  padding: 15px;
+  background-color: #f9f9f9;  /* Light gray background */
+  overflow-y: auto;  /* Enable vertical scrolling */
+}
+.file-content textarea {
+  width: 100%;
+  height: calc(100vh - 30px);
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: 'Courier New', monospace;
+}
+
+.selected-file {
+  background-color: #e0e0e0;  /* Gray background */
+}

@@ -32,7 +32,7 @@ def gen_audio_from_page(url, show=False):
         "%Y%m%d") + "_" + "News_" + multi_summaries['title'])
 
     file_name = (base_name + '.txt').replace('..', '.')
-    with open('data/scripts/' + file_name, 'w') as f:
+    with open('data/scripts/' + file_name, 'w', encoding='utf-8') as f:
         f.write(multi_summaries['raw'])
 
     print('')
