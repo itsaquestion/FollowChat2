@@ -29,7 +29,7 @@ def gen_audio_from_page(url, show=False):
 
     today = datetime.today()
     base_name = sanitize_filename(today.strftime(
-        "%Y%m%d") + "_" + "News_" + multi_summaries['title'])
+        "%Y%m%d-%H%M") + "_" + "News_" + multi_summaries['title']).replace('__','_').replace('_-','-')
 
     file_name = (base_name + '.txt').replace('..', '.')
     with open('data/scripts/' + file_name, 'w', encoding='utf-8') as f:
@@ -59,7 +59,18 @@ def gen_album(urls, tag=None):
     for url in urls:
         gen_audio_from_page(url, show=False)
 
-    print('\n合并音频 ====')
-    merged_file = merge_mp3_files_in_directory('data/output')
+    source_folder = 'data/output/'
+    destination_folder = 'data/album/'
+    
+    # 遍历源文件夹中的所有文件
+    for filename in os.listdir(source_folder):
+        source = os.path.join(source_folder, filename)
+        destination = os.path.join(destination_folder, filename)
 
-    move_and_tag(merged_file, 'data/album', tag)
+        # 拷贝文件
+        shutil.copy(source, destination)
+    
+    #print('\n合并音频 ====')
+    #merged_file = merge_mp3_files_in_directory('data/output')
+
+    #move_and_tag(merged_file, 'data/album', tag)
