@@ -2,7 +2,7 @@
 
 import re
 import textwrap
-from .llm import *
+from llm import *
 
 def remove_inner_content(text):
     # 使用正则表达式找到所有的[[内容]]，并将其中的内容替换为空
@@ -27,17 +27,17 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     ```news
     {content}
     ```
-     
+    
     - 你是一个英语教育专家，特长是面向第二语言的英语口语和写作教育。请把上述新闻，写成3种英语学习材料，分步骤进行：
 
     step 0: 提取新闻的标题，总结成较短的标题，包含新闻来源。
     step 1: 新闻总结，专业英语，250单词
     step 2: 简单英语版本，面向第二语言的学习者，250单词
-    step 3: 口语化版本，使用 TED Talks 的语音风格，作为英语学习者的口语练习材料，250单词
+    step 3: 英语口语版本，使用 CBS 60 minutes interviews 的语言风格，250单词
     step 4: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
     
     - generate 3 summeries, strict adherence to formatting examples.
-        
+
     - Formatting Example:
     [Step 0: Relative short Title includes the source]
     Title here.
@@ -45,7 +45,7 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     summary here
     [Step 2: 250 words Simplified English for Second Language Learners]
     summary here
-    [Step 3: 250 words Spoken English for Language Learners, TED Talks' style]
+    [Step 3: 250 words Spoken English, style of CBS 60 minutes interviews]
     summary here
     [Step 4: words and phrases should be noticed for learners]
     word/phrase /phonetic if it's a word/: meaning in Chinese.
