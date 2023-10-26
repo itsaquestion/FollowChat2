@@ -2,7 +2,7 @@
 
 import re
 import textwrap
-from llm import *
+from .llm import *
 
 def remove_inner_content(text):
     # 使用正则表达式找到所有的[[内容]]，并将其中的内容替换为空
