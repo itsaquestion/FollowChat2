@@ -14,7 +14,7 @@ def get_news_from_media(keywords, media, media_filter = None):
     """
     googlenews = GoogleNews(period='2d')
 
-    query = '"' +  media + '" ' + keywords + '-youtube'
+    query = '"' +  media + '" ' + keywords + ' -youtube'
         
     print("Search: " + query)
     

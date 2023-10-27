@@ -51,14 +51,18 @@ def gen_audio_from_page(url, show=False):
     combine_wav(file_name)
     print('完成')
 
-
+            
 def gen_album(urls, tag=None):
     """合并新闻，添加一个tag，并移动到album"""
     setup_dirs()
 
+    # 对每一条新闻都生成脚本和音频
     for url in urls:
         gen_audio_from_page(url, show=False)
 
+
+    # output下的音频拷贝到album
+    # 注意output也只是临时文件夹，每次生成的时候会清空
     source_folder = 'data/output/'
     destination_folder = 'data/album/'
     
@@ -69,6 +73,10 @@ def gen_album(urls, tag=None):
 
         # 拷贝文件
         shutil.copy(source, destination)
+    
+    # 非今天的文件转移到Archive
+    move_dated_files_to_archive('data/album','data/album/archive')
+    move_dated_files_to_archive('data/scripts','data/scripts/archive')
     
     #print('\n合并音频 ====')
     #merged_file = merge_mp3_files_in_directory('data/output')
