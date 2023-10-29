@@ -2,6 +2,7 @@ from GoogleNews import GoogleNews
 import pandas as pd
 
 from functools import partial
+from icecream import ic
 
 
 def get_news_from_media(keywords, media, media_filter = None):
@@ -16,13 +17,18 @@ def get_news_from_media(keywords, media, media_filter = None):
 
     query = '"' +  media + '" ' + keywords + ' -youtube'
         
-    print("Search: " + query)
+    ic("Search: " + query)
     
     googlenews.search(query)
 
-    df = pd.DataFrame(googlenews.results())
+    df_list = []
+    for i in range(1,4):
+        df_list.append(pd.DataFrame(googlenews.page_at(i)))
+
+    df = pd.concat(df_list)
     
-    print(df[['date','title','media']])
+    
+    ic(df[['date','title','media']])
 
     if (len(df) == 0):
         raise "没数据，可能刷新太多了"
