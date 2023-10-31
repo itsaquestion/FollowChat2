@@ -10,3 +10,4 @@ GoogleNews
 Flask
 waitress
 icecream
+selenium
