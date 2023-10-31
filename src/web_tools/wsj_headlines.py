@@ -64,8 +64,6 @@ def get_wsj_headlines(hub_url = "http://localhost:4444/wd/hub"):
     # 初始化一个空列表来存储结果
     articles_data = []
 
- 
-
     # 遍历所有的 <article> 标签
     for article in soup.find_all('article'):
         # 查找每个 <article> 下的第一个 <h3> 标签

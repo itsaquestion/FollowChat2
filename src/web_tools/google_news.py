@@ -22,7 +22,7 @@ def get_news_from_media(keywords, media, media_filter = None):
     googlenews.search(query)
 
     df_list = []
-    for i in range(1,4):
+    for i in range(1,3):
         df_list.append(pd.DataFrame(googlenews.page_at(i)))
 
     df = pd.concat(df_list)
@@ -42,7 +42,7 @@ def get_news_from_media(keywords, media, media_filter = None):
     query_str = (
         'date.str.contains("hours|mins") and '
         f'media.str.contains("{media_filter}") and '
-        '(not link.str.contains("video|podcasts|livecoverage"))'
+        '(not link.str.contains("video|podcasts|livecoverage|photos"))'
     )
     columns_to_select = ['date', 'datetime', 'title', 'link']
 
