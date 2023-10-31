@@ -31,21 +31,21 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     - 你是一个英语教育专家，特长是面向第二语言的英语口语和写作教育。请把上述新闻，写成3种英语学习材料，分步骤进行：
 
     step 0: 提取新闻的标题，总结成较短的标题，包含新闻来源。
-    step 1: 新闻总结，专业英语，250单词
-    step 2: 简单英语版本，面向第二语言的学习者，250单词
+    step 1: 新闻总结，专业英语，400单词
+    step 2: 简单英语版本，面向第二语言的学习者，400单词
     step 3: 英语口语版本，使用 CBS 60 minutes 的语言风格，但采用相对短的句子，250单词
     step 4: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
     
     - generate 3 summeries, strict adherence to formatting examples.
 
     - Formatting Example:
-    [Step 0: Relative short Title includes the source]
+    [Step 0: Relatively short Title includes the source]
     Title here.
-    [Step 1: 250 words News Summary, professional English]
+    [Step 1: 400 words News Summary, professional English]
     summary here
-    [Step 2: 250 words Simplified English for Second Language Learners]
+    [Step 2: 400 words Simplified English for Second Language Learners]
     summary here
-    [Step 3: 250 words Spoken English, use CBS 60 minutes style but relatively shorter sentences]
+    [Step 3: 250 words Spoken English, use CBS 60 minutes style but relatively short sentences]
     summary here
     [Step 4: words and phrases should be noticed for learners]
     word/phrase /phonetic if it's a word/: meaning in Chinese.

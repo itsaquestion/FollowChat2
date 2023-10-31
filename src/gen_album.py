@@ -58,7 +58,7 @@ def gen_album(urls):
 
     # 对每一条新闻都生成脚本和音频
     for url in urls:
-        gen_audio_from_page(url, show=False)
+        gen_audio_from_page(url, show=True)
 
 
     # output下的音频拷贝到album

@@ -7,10 +7,10 @@ if __name__ == '__main__':
     
     news_info = get_wsj_headlines()
 
-    ic(news_info)
+    print(news_info)
     
     if news_info is not None:
-        urls = news_info.head(2)['link']
+        urls = news_info.head(5)['link']
         
         gen_album(urls)
         
