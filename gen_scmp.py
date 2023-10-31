@@ -9,4 +9,4 @@ if __name__ == '__main__':
     
     urls = news_info['link']
     
-    gen_album(urls,'scmp')
+    gen_album(urls)

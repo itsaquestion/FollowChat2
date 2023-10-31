@@ -12,5 +12,5 @@ if __name__ == '__main__':
     if news_info is not None:
         urls = news_info.head(2)['link']
         
-        gen_album(urls,'wsj')
+        gen_album(urls)
         
