@@ -6,7 +6,7 @@
 import re
 
 
-def split_sentences(text):
+def split_sentences(text, pause_tag = '<pp>'):
     """
     Split a given text into sentences based on common sentence delimiters.
 
@@ -16,6 +16,11 @@ def split_sentences(text):
     Returns:
         List[str]: A list of sentences extracted from the input text.
     """
+    
+    # 如果存在pause_tag，就插入一个逗号空格
+    if isinstance(pause_tag, str) and len(pause_tag) > 0:
+        text = text.replace(pause_tag, ', ')
+        
     # Use regular expression to split sentences by common delimiters ('.', '!', '?') followed by a space.
     
     # sentences = re.split(r'(?<=[.!?])\s+', text)
@@ -134,6 +139,6 @@ if __name__ == "__main__":
     chat_script = read_sample_chat()
     # print(process_chat(chat_script))
     
-    text = "So, there's this U.S. soldier, right? He was just released from North Korea, which is a big deal. But guess what? Now he's in trouble back home. Turns out, he's facing charges related to child pornography. Yeah, not good. The soldier, we don't know his name, was arrested as soon as he got back to the U.S. The charges are all about him having and sharing explicit pictures of kids. Yikes! His lawyer hasn't said anything about it yet. People are really concerned about how soldiers who were held captive in other countries are checked before they come back. Like, what if they're dangerous? This whole thing is putting a damper on the celebration of his release from North Korea. It was supposed to be a positive thing for the ongoing diplomatic efforts between the two countries. But now, these charges are stealing the spotlight. The soldier is gonna have a military trial, and if he's found guilty, he could be in big trouble. Like, prison and getting kicked out of the military kind of trouble."
+    text = "Brazil's defense minister, Walter Braga Netto, is furious with Israel. He says they made a statement about a foiled Hezbollah attack <pp> that is completely false. According to the Israeli ambassador, Brazil knew about the attack <pp> but did nothing. Netto says this is a lie. He says Brazil was never informed about any attack plans. And he's not happy with Israel <pp> for making public statements without checking the facts first. Netto wants an explanation from Israel <pp> and he expects an apology. This whole situation has put a strain on the relationship between Brazil and Israel. Hezbollah, a group from Lebanon, is considered a terrorist organization by many countries, including the United States and Israel. Brazil is working with other countries <pp> to fight terrorism and keep its people safe."
     
     print(process_chat('Aria: '+ text))

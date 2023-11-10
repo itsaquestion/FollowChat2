@@ -2,7 +2,7 @@
 
 import re
 import textwrap
-from .llm import *
+from src.ai_tools.llm import *
 
 def remove_inner_content(text):
     # 使用正则表达式找到所有的[[内容]]，并将其中的内容替换为空
@@ -33,8 +33,9 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     step 0: 提取新闻的标题，总结成较短的标题，包含新闻来源。
     step 1: 新闻总结，专业英语，400单词
     step 2: 简单英语版本，面向第二语言的学习者，400单词
-    step 3: 英语口语版本，使用 CBS 60 minutes 的语言风格，但采用相对短的句子，250单词
-    step 4: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
+    step 3: 英语口语版本，使用 CBS 60 minutes 的语言风格，250单词
+    step 4: 对上一个版本中的长句，比如从句或者复合句，加入适当的停顿标签<pp>，符合人类说话的停顿节奏。
+    step 5: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
     
     - generate 3 summeries, strict adherence to formatting examples.
 
@@ -45,9 +46,11 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     summary here
     [Step 2: 400 words Simplified English for Second Language Learners]
     summary here
-    [Step 3: 250 words Spoken English, use CBS 60 minutes style but relatively short sentences]
+    [Step 3: 250 words Spoken English, use CBS 60 minutes style]
     summary here
-    [Step 4: words and phrases should be noticed for learners]
+    [Step 4: New version of Spoken English with pause tag]
+    summary here
+    [Step 5: words and phrases should be noticed for learners]
     word/phrase /phonetic if it's a word/: meaning in Chinese.
     
     """)
@@ -64,7 +67,8 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
            'pro': result[1],
            'simplified': result[2],
            'spoken': result[3].replace('\n',' '),
-           'vocab': result[4],
+           'spoken_pp': result[4].replace('\n',' '),
+           'vocab': result[5],
            'raw': summaries}
 
     return ret
@@ -75,7 +79,8 @@ if __name__ == "__main__":
     # doctest.testmod()
 
     # print('测试完成')
-    url = 'https://www.wsj.com/world/china/dont-rule-out-a-financial-crisis-in-china-ed048ef9'
-    result = generate_multi_style_summaries(url, show=True)
-    print("\n\n")
-    print(result)
+    url = 'https://www.reuters.com/world/china/chinas-largest-bank-icbc-hit-by-ransomware-software-ft-2023-11-09/'
+    print(url)
+    #result = generate_multi_style_summaries(url, show=True)
+    #print("\n\n")
+    #print(result)

@@ -38,7 +38,7 @@ def gen_audio_from_page(url, show=False):
     print('')
     print('\n处理对话 =======')
 
-    new_script = process_chat('Aria: ' + multi_summaries['spoken'])
+    new_script = process_chat('Aria: ' + multi_summaries['spoken_pp'])
     new_script = 'Jenny: ' + multi_summaries['title'] + '\n' + new_script
     print(new_script)
 
