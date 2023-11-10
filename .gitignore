@@ -1,4 +1,4 @@
-data/
+_book/
 data/
 .env
 .pytest_cache/
