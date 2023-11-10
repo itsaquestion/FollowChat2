@@ -11,3 +11,4 @@ Flask
 waitress
 icecream
 selenium
+quarto

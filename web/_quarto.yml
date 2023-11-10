@@ -1,0 +1,20 @@
+project:
+  type: book
+
+book:
+  title: "web"
+  author: "Norah Jones"
+  date: "11/10/2023"
+  chapters:
+    - index.qmd
+    - text.md
+
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
