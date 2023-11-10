@@ -1,0 +1,20 @@
+project:
+  type: book
+
+book:
+  title: "News"
+  author: "lee"
+  date: "{date}"
+  chapters:
+    - index.qmd
+    {file_list}
+
+
+format:
+  html:
+    theme: [cosmo, nord.scss,custom.scss]
+  pdf:
+    documentclass: scrreprt
+
+
+
