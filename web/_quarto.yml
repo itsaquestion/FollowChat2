@@ -2,12 +2,12 @@ project:
   type: book
 
 book:
-  title: "web"
-  author: "Norah Jones"
+  title: "News"
+  author: "lee"
   date: "11/10/2023"
   chapters:
     - index.qmd
-    - text.md
+    - 20231110-1445_News_Gaza Hospitals Under Attack by Israeli Forces - Reuters.md
 
 
 format:
