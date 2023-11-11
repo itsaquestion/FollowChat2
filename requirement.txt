@@ -1,7 +1,7 @@
 azure-cognitiveservices-speech
 python-dotenv
 pydub
-openai
+openai==0.28
 ipykernel
 pytest
 bs4
