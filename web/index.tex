@@ -1,0 +1,1043 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={News},
+  pdfauthor={lee},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{News}
+\author{lee}
+\date{2023-11-10}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, sharp corners, frame hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, interior hidden, boxrule=0pt]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+\markboth{Preface}{Preface}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{brazil-minister-angered-by-israeli-statement-on-foiled-hezbollah-attack---reuters}{%
+\chapter{Brazil Minister Angered by Israeli Statement on Foiled
+Hezbollah Attack -
+Reuters}\label{brazil-minister-angered-by-israeli-statement-on-foiled-hezbollah-attack---reuters}}
+
+\hypertarget{professional-english}{%
+\section{Professional English}\label{professional-english}}
+
+Brazil's defense minister, Walter Braga Netto, expressed anger over a
+statement made by Israel regarding a foiled Hezbollah attack. The
+Israeli ambassador to Brazil, Giora Becher, claimed that the Brazilian
+government had been informed about the planned attack, but failed to
+act. Netto strongly denied these allegations, stating that Brazil had
+not received any prior information from Israel. He further criticized
+the Israeli government for making such statements without providing
+evidence. The tension between Brazil and Israel has escalated, with
+Netto summoning the Israeli ambassador for an explanation. The Brazilian
+government has demanded a public apology from Israel for the false
+accusations. The incident has strained the diplomatic relations between
+the two countries, as Brazil considers Hezbollah a terrorist
+organization and has been actively working to combat its activities
+within its borders. The Brazilian government has also expressed concerns
+about the potential impact of these false accusations on its
+international reputation. The Israeli government has not yet responded
+to the Brazilian demands for an apology.
+
+\hypertarget{simplified-english}{%
+\section{Simplified English}\label{simplified-english}}
+
+Brazil's defense minister, Walter Braga Netto, is angry about a
+statement made by Israel about a stopped Hezbollah attack. The Israeli
+ambassador to Brazil, Giora Becher, said that Brazil knew about the
+attack but did nothing. Netto said this is not true and that Brazil
+didn't get any information from Israel. He also said that Israel should
+show proof before making such statements. The relationship between
+Brazil and Israel is getting worse. Netto called the Israeli ambassador
+to ask for an explanation. Brazil wants Israel to say sorry for the
+lies. This problem is making the relationship between Brazil and Israel
+worse. Brazil thinks Hezbollah is a terrorist group and is working to
+stop them in Brazil. Brazil is also worried that this problem will make
+other countries think badly of Brazil. Israel has not said sorry yet.
+
+\hypertarget{spoken-english}{%
+\section{Spoken English}\label{spoken-english}}
+
+Brazil's defense minister, Walter Braga Netto, is furious with Israel.
+He's angry about a statement made by the Israeli ambassador, Giora
+Becher. Becher said that Brazil knew about a planned Hezbollah attack,
+but did nothing. Netto says that's not true. He says Brazil didn't get
+any information from Israel. Netto is really upset. He thinks Israel
+should have proof before making such serious accusations. The
+relationship between Brazil and Israel is in trouble. Netto called the
+Israeli ambassador to demand an explanation. Brazil wants Israel to
+apologize for spreading lies. This situation is causing tension between
+the two countries. Brazil sees Hezbollah as a terrorist group and is
+actively fighting against them. Brazil is worried that this problem will
+damage its reputation internationally. So far, Israel has not responded
+to Brazil's demand for an apology.
+
+\hypertarget{spoken-english-with-pause-tag}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag}}
+
+Brazil's defense minister, Walter Braga Netto, is furious with Israel.
+He's angry about a statement made by the Israeli ambassador, Giora
+Becher. Becher said that Brazil knew about a planned Hezbollah attack,
+but did nothing. Netto says that's not true. He says Brazil didn't get
+any information from Israel. Netto is really upset. He thinks Israel
+should have proof before making such serious accusations. The
+relationship between Brazil and Israel is in trouble. Netto called the
+Israeli ambassador to demand an explanation. Brazil wants Israel to
+apologize for spreading lies. This situation is causing tension between
+the two countries. Brazil sees Hezbollah as a terrorist group and is
+actively fighting against them. Brazil is worried that this problem will
+damage its reputation internationally. So far, Israel has not responded
+to Brazil's demand for an apology.
+
+\hypertarget{vocabulary}{%
+\section{Vocabulary}\label{vocabulary}}
+
+\begin{itemize}
+\tightlist
+\item
+  foiled (adj.): 阻止的，挫败的
+\item
+  Hezbollah (n.): 黎巴嫩真主党
+\item
+  allegations (n.): 指控，指责
+\item
+  escalate (v.): 升级，恶化
+\item
+  summon (v.): 召见，传唤
+\item
+  false accusations (n.): 虚假指控
+\item
+  diplomatic relations (n.): 外交关系
+\item
+  terrorist organization (n.): 恐怖组织
+\item
+  international reputation (n.): 国际声誉
+\item
+  apologize (v.): 道歉
+\item
+  proof (n.): 证据
+\item
+  tension (n.): 紧张，紧张局势
+\item
+  actively (adv.): 积极地，主动地
+\item
+  damage (v.): 损害，破坏
+\item
+  respond (v.): 回应，回答
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{celsius-network-cleared-to-exit-bankruptcy-reuters-reports}{%
+\chapter{``Celsius Network Cleared to Exit Bankruptcy, Reuters
+Reports''}\label{celsius-network-cleared-to-exit-bankruptcy-reuters-reports}}
+
+\hypertarget{professional-english-1}{%
+\section{Professional English}\label{professional-english-1}}
+
+Celsius Network, a cryptocurrency lending platform, has been given
+approval to exit bankruptcy, according to a report by Reuters. The
+company had filed for Chapter 11 bankruptcy protection in August 2023
+after facing financial difficulties. However, a U.S. bankruptcy judge
+has now cleared Celsius Network to emerge from bankruptcy and continue
+its operations. The judge's decision was based on the company's
+successful restructuring plan, which involved reducing its debt and
+securing new funding. Celsius Network, founded in 2017, offers
+interest-earning accounts and loans backed by cryptocurrencies. The
+company has gained popularity in the crypto industry, attracting over 1
+million users and managing more than \$20 billion in assets. With its
+exit from bankruptcy, Celsius Network aims to regain stability and
+further expand its services in the growing cryptocurrency market.
+
+\hypertarget{simplified-english-1}{%
+\section{Simplified English}\label{simplified-english-1}}
+
+Celsius Network, a platform that lends cryptocurrency, has been given
+permission to end its bankruptcy, says a report from Reuters. The
+company had asked for protection from bankruptcy in August 2023 because
+it was having money problems. But now, a judge in the United States has
+said that Celsius Network can stop being bankrupt and keep working. The
+judge made this decision because the company made a plan to fix its
+problems. The plan included getting less debt and finding new money.
+Celsius Network started in 2017 and it lets people earn interest on
+their cryptocurrency and borrow money using it as security. Many people
+like Celsius Network and more than 1 million people use it. The company
+also manages more than \$20 billion in cryptocurrency. Celsius Network
+wants to become stable again and offer more services in the
+cryptocurrency market.
+
+\hypertarget{spoken-english-1}{%
+\section{Spoken English}\label{spoken-english-1}}
+
+Celsius Network, a cryptocurrency lending platform, has been given the
+green light to exit bankruptcy, according to a report by Reuters. The
+company, which faced financial troubles, filed for Chapter 11 bankruptcy
+protection in August 2023. But now, a U.S. bankruptcy judge has given
+Celsius Network the go-ahead to emerge from bankruptcy and continue its
+operations. The judge's decision was based on the company's successful
+restructuring plan, which involved reducing its debt and securing new
+funding. Founded in 2017, Celsius Network has gained popularity in the
+crypto industry, attracting over 1 million users and managing more than
+\$20 billion in assets. With its exit from bankruptcy, Celsius Network
+aims to regain stability and further expand its services in the growing
+cryptocurrency market.
+
+\hypertarget{spoken-english-with-pause-tag-1}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag-1}}
+
+Celsius Network, a cryptocurrency lending platform, has been given the
+green light to exit bankruptcy, according to a report by Reuters. The
+company, which faced financial troubles, filed for Chapter 11 bankruptcy
+protection in August 2023. But now, a U.S. bankruptcy judge has given
+Celsius Network the go-ahead to emerge from bankruptcy and continue its
+operations. The judge's decision was based on the company's successful
+restructuring plan, which involved reducing its debt and securing new
+funding. Founded in 2017, Celsius Network has gained popularity in the
+crypto industry, attracting over 1 million users and managing more than
+\$20 billion in assets. With its exit from bankruptcy, Celsius Network
+aims to regain stability and further expand its services in the growing
+cryptocurrency market.
+
+\hypertarget{vocabulary-1}{%
+\section{Vocabulary}\label{vocabulary-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  bankruptcy {[}ˈbæŋkrʌptsi{]} (n.): 破产
+\item
+  emerge {[}ɪˈmɜːrdʒ{]} (v.): 出现，浮现
+\item
+  restructuring {[}ˌriːˈstrʌktʃərɪŋ{]} (n.): 重组
+\item
+  debt {[}det{]} (n.): 债务
+\item
+  funding {[}ˈfʌndɪŋ{]} (n.): 资金
+\item
+  attract {[}əˈtrækt{]} (v.): 吸引
+\item
+  stability {[}stəˈbɪləti{]} (n.): 稳定
+\item
+  expand {[}ɪkˈspænd{]} (v.): 扩大
+\item
+  cryptocurrency {[}ˌkrɪptoʊˈkʌrənsi{]} (n.): 加密货币
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{third-party-candidates-pose-threat-to-biden-in-2024-says-wsj}{%
+\chapter{``Third-Party Candidates Pose Threat to Biden in 2024, Says
+WSJ''}\label{third-party-candidates-pose-threat-to-biden-in-2024-says-wsj}}
+
+\hypertarget{professional-english-2}{%
+\section{Professional English}\label{professional-english-2}}
+
+According to a recent article by The Wall Street Journal (WSJ),
+third-party candidates could potentially pose a threat to President Joe
+Biden's re-election bid in 2024. The article highlights the historical
+impact of third-party candidates on past elections and suggests that
+their presence in the upcoming election could divide the Democratic
+vote. The WSJ points out that third-party candidates often attract
+voters who are dissatisfied with the two major parties, and their
+participation could potentially siphon off votes that would have
+otherwise gone to Biden. The article also discusses the potential
+influence of prominent figures like former President Donald Trump, who
+might choose to run as a third-party candidate. While it remains
+uncertain whether third-party candidates will have a significant impact
+on the 2024 election, the WSJ suggests that their presence could
+complicate Biden's path to re-election.
+
+\hypertarget{simplified-english-2}{%
+\section{Simplified English}\label{simplified-english-2}}
+
+A recent article from The Wall Street Journal (WSJ) suggests that
+third-party candidates might be a problem for President Joe Biden in the
+2024 election. The article explains that third-party candidates have
+affected previous elections and could divide the Democratic vote in the
+upcoming election. The WSJ says that third-party candidates often
+attract voters who are unhappy with the two main parties, and this could
+take away votes from Biden. The article also talks about the possible
+impact of well-known figures like former President Donald Trump, who
+might run as a third-party candidate. It is not clear yet how much of an
+effect third-party candidates will have on the 2024 election, but the
+WSJ says that their presence could make it harder for Biden to win
+again.
+
+\hypertarget{spoken-english-2}{%
+\section{Spoken English}\label{spoken-english-2}}
+
+In a recent article by The Wall Street Journal (WSJ), it is suggested
+that President Joe Biden could face a challenge from third-party
+candidates in the 2024 election. The article points out that third-party
+candidates have had an impact on previous elections and could
+potentially divide the Democratic vote. According to the WSJ, these
+candidates often attract voters who are dissatisfied with the two major
+parties, and this could take away votes that would have otherwise gone
+to Biden. The article also discusses the potential influence of
+well-known figures like former President Donald Trump, who might decide
+to run as a third-party candidate. While it is still uncertain how much
+of an impact third-party candidates will have on the 2024 election, the
+WSJ suggests that their presence could complicate Biden's chances of
+being re-elected.
+
+\hypertarget{spoken-english-with-pause-tag-2}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag-2}}
+
+In a recent article by The Wall Street Journal (WSJ), it is suggested
+that President Joe Biden could face a challenge from third-party
+candidates in the 2024 election. The article points out that third-party
+candidates have had an impact on previous elections and could
+potentially divide the Democratic vote. According to the WSJ, these
+candidates often attract voters who are dissatisfied with the two major
+parties and this could take away votes that would have otherwise gone to
+Biden. The article also discusses the potential influence of well-known
+figures like former President Donald Trump who might decide to run as a
+third-party candidate. While it is still uncertain how much of an impact
+third-party candidates will have on the 2024 election the WSJ suggests
+that their presence could complicate Biden's chances of being
+re-elected.
+
+\hypertarget{vocabulary-2}{%
+\section{Vocabulary}\label{vocabulary-2}}
+
+\begin{itemize}
+\tightlist
+\item
+  third-party candidates /ˈθɜːrdˌpɑːrti ˈkændɪdəts/ : 第三党候选人
+\item
+  pose a threat to /poʊz ə θrɛt tuː/ : 对\ldots 构成威胁
+\item
+  re-election bid /ˌriːɪˈlɛkʃən bɪd/ : 重新竞选
+\item
+  divide the vote /dɪˈvaɪd ðə voʊt/ : 分散选票
+\item
+  siphon off votes /ˈsaɪfən ɔːf voʊts/ : 分流选票
+\item
+  path to re-election /pæθ tuː ˌriːɪˈlɛkʃən/ : 重新当选的道路
+\item
+  challenge /ˈtʃælɪndʒ/ : 挑战
+\item
+  potential influence /pəˈtɛnʃəl ˈɪnfluəns/ : 潜在影响
+\item
+  well-known figures /wɛl noʊn ˈfɪɡjərz/ : 知名人物
+\item
+  complicate /ˈkɑːmplɪkeɪt/ : 使复杂化
+\item
+  chances of being re-elected /ˈtʃænsɪz əv biːɪŋ ˌriːɪˈlɛktɪd/ :
+  重新当选的机会
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{gaza-hospitals-under-attack-by-israeli-forces---reuters}{%
+\chapter{Gaza Hospitals Under Attack by Israeli Forces -
+Reuters}\label{gaza-hospitals-under-attack-by-israeli-forces---reuters}}
+
+\hypertarget{professional-english-3}{%
+\section{Professional English}\label{professional-english-3}}
+
+Gaza Officials Say Hospitals Come Under New Israeli Attacks Gaza
+hospitals have reportedly come under new attacks by Israeli forces,
+according to officials in the region. The attacks have raised concerns
+about the already strained healthcare system in Gaza, which has been
+grappling with a surge in COVID-19 cases. The officials have accused
+Israel of deliberately targeting medical facilities, including a
+hospital that was hit by an airstrike. The Israeli military has stated
+that it only targets sites used by Hamas, the militant group that
+controls Gaza. However, the United Nations has called for an immediate
+halt to the attacks on hospitals and other civilian infrastructure. The
+escalating violence in the region has resulted in a growing number of
+casualties, including many civilians. The international community has
+expressed deep concern over the situation and has called for a peaceful
+resolution to the conflict.
+
+\hypertarget{simplified-english-3}{%
+\section{Simplified English}\label{simplified-english-3}}
+
+Gaza Hospitals Attacked by Israeli Forces According to officials in
+Gaza, hospitals in the region have been attacked by Israeli forces. This
+is causing even more problems for Gaza's healthcare system, which is
+already struggling with a lot of COVID-19 cases. The officials say that
+Israel is purposely targeting hospitals, including one that was hit by a
+bomb. The Israeli military says that it only attacks places used by
+Hamas, the group that controls Gaza. But the United Nations wants the
+attacks on hospitals and other civilian buildings to stop right away.
+The fighting in the area is getting worse, and more and more people are
+getting hurt, including a lot of innocent people. The world is very
+worried about what's happening and wants the conflict to end peacefully.
+
+\hypertarget{spoken-english-3}{%
+\section{Spoken English}\label{spoken-english-3}}
+
+Gaza Hospitals Under Attack by Israeli Forces In a disturbing turn of
+events, hospitals in Gaza are now being targeted by Israeli forces. This
+latest development has raised serious concerns about the already
+strained healthcare system in the region, which is grappling with a
+surge in COVID-19 cases. According to officials, the attacks on
+hospitals are deliberate and have resulted in significant damage. One
+hospital was hit by an airstrike, leaving medical staff and patients in
+a state of shock and despair. The Israeli military claims that it only
+targets sites used by Hamas, the militant group that controls Gaza.
+However, the United Nations is calling for an immediate halt to these
+attacks on hospitals and other civilian infrastructure. The situation on
+the ground is dire, with a growing number of casualties, including
+innocent civilians. The international community is deeply alarmed by the
+escalating violence and is urging all parties involved to seek a
+peaceful resolution to the conflict.
+
+\hypertarget{spoken-english-with-pause-tag-3}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag-3}}
+
+Gaza Hospitals Under Attack by Israeli Forces In a disturbing turn of
+events, hospitals in Gaza are now being targeted by Israeli forces. This
+latest development has raised serious concerns about the already
+strained healthcare system in the region, which is grappling with a
+surge in COVID-19 cases. According to officials, the attacks on
+hospitals are deliberate and have resulted in significant damage. One
+hospital was hit by an airstrike leaving medical staff and patients in a
+state of shock and despair. The Israeli military claims that it only
+targets sites used by Hamas the militant group that controls Gaza.
+However, the United Nations is calling for an immediate halt to these
+attacks on hospitals and other civilian infrastructure. The situation on
+the ground is dire with a growing number of casualties including
+innocent civilians. The international community is deeply alarmed by the
+escalating violence and is urging all parties involved to seek a
+peaceful resolution to the conflict.
+
+\hypertarget{vocabulary-3}{%
+\section{Vocabulary}\label{vocabulary-3}}
+
+\begin{itemize}
+\tightlist
+\item
+  surge /sɜːrdʒ/ (noun): a sudden and significant increase in something.
+  激增
+\item
+  deliberate /dɪˈlɪbərət/ (adjective): done consciously and
+  intentionally. 故意的
+\item
+  infrastructure /ˈɪnfrəstrʌktʃər/ (noun): the basic physical and
+  organizational structures and facilities needed for the operation of a
+  society or enterprise. 基础设施
+\item
+  dire /daɪər/ (adjective): extremely serious or urgent. 极其严重的
+\item
+  casualties /ˈkæʒjʊəltiz/ (noun): people who are killed or injured in a
+  war or accident. 伤亡人员
+\item
+  escalate /ˈɛskəleɪt/ (verb): to become or make something become
+  greater or more serious. 升级
+\item
+  seek /siːk/ (verb): to try to find or obtain something. 寻求
+\item
+  resolution /ˌrɛzəˈluːʃən/ (noun): a firm decision to do or not to do
+  something. 决心
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{income-tax-brackets-for-2024-released-by-irs---the-wall-street-journal}{%
+\chapter{Income Tax Brackets for 2024 Released by IRS - The Wall Street
+Journal}\label{income-tax-brackets-for-2024-released-by-irs---the-wall-street-journal}}
+
+\hypertarget{professional-english-4}{%
+\section{Professional English}\label{professional-english-4}}
+
+The Internal Revenue Service (IRS) has released the income tax brackets
+for the year 2024. These brackets determine the percentage of income
+that individuals and families will owe in federal taxes. The new
+brackets reflect adjustments for inflation and are used to calculate tax
+liability based on income levels. The IRS updates the tax brackets
+annually to account for changes in the cost of living. The brackets for
+2024 show slight increases in the income thresholds for each tax
+bracket, which means that individuals and families will be able to earn
+slightly more income before moving into a higher tax bracket. This
+adjustment aims to prevent taxpayers from being pushed into higher tax
+brackets solely due to inflation. The IRS also announced changes to the
+standard deduction and personal exemption amounts for 2024. The standard
+deduction is a fixed amount that reduces the amount of income subject to
+tax, while the personal exemption allows taxpayers to deduct a specific
+amount for themselves and their dependents. These changes will impact
+the amount of taxable income and ultimately the tax liability for
+individuals and families. Taxpayers should review the new tax brackets
+and other changes to ensure they are accurately calculating their tax
+liability for the upcoming year.
+
+\hypertarget{simplified-english-4}{%
+\section{Simplified English}\label{simplified-english-4}}
+
+The IRS has released the income tax brackets for 2024. These brackets
+determine how much money people and families have to pay in taxes to the
+government. The new brackets are based on how much money people make.
+The IRS updates the brackets every year to keep up with the cost of
+living. The brackets for 2024 show that people can earn a little more
+money before they have to pay a higher percentage of taxes. This is to
+make sure that people don't have to pay more taxes just because the cost
+of living goes up. The IRS also made changes to the standard deduction
+and personal exemption amounts for 2024. The standard deduction is a set
+amount of money that reduces the amount of income that gets taxed. The
+personal exemption lets people deduct a certain amount of money for
+themselves and their dependents. These changes will affect how much
+money people have to pay in taxes. People should look at the new tax
+brackets and other changes to make sure they are calculating their taxes
+correctly for next year.
+
+\hypertarget{spoken-english-4}{%
+\section{Spoken English}\label{spoken-english-4}}
+
+The IRS has just released the income tax brackets for the year 2024.
+These brackets determine how much money you and your family will owe in
+federal taxes. The new brackets take into account the rising cost of
+living and are used to calculate your tax liability based on your income
+level. Now, here's the thing: the brackets for 2024 show slight
+increases in the income thresholds for each tax bracket. What does that
+mean for you? Well, it means that you can earn a little more income
+before you move into a higher tax bracket. And that's good news, right?
+Nobody wants to pay more taxes if they don't have to. The IRS is making
+these adjustments to prevent taxpayers from being pushed into higher tax
+brackets solely because of inflation. But that's not all. The IRS has
+also made changes to the standard deduction and personal exemption
+amounts for 2024. The standard deduction is a fixed amount that reduces
+the income subject to tax. And the personal exemption allows you to
+deduct a specific amount for yourself and your dependents. These changes
+will affect how much money you have to pay in taxes. So, it's important
+to review the new tax brackets and other changes to make sure you're
+accurately calculating your tax liability for the upcoming year.
+
+\hypertarget{spoken-english-with-pause-tag-4}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag-4}}
+
+The IRS has just released the income tax brackets for the year 2024.
+These brackets determine how much money you and your family will owe in
+federal taxes. The new brackets take into account the rising cost of
+living and are used to calculate your tax liability based on your income
+level. Now, here's the thing: the brackets for 2024 show slight
+increases in the income thresholds for each tax bracket. What does that
+mean for you? Well, it means that you can earn a little more income
+before you move into a higher tax bracket. And that's good news, right?
+Nobody wants to pay more taxes if they don't have to. The IRS is making
+these adjustments to prevent taxpayers from being pushed into higher tax
+brackets solely because of inflation. But that's not all. The IRS has
+also made changes to the standard deduction and personal exemption
+amounts for 2024. The standard deduction is a fixed amount that reduces
+the income subject to tax. And the personal exemption allows you to
+deduct a specific amount for yourself and your dependents. These changes
+will affect how much money you have to pay in taxes. So, it's important
+to review the new tax brackets and other changes to make sure you're
+accurately calculating your tax liability for the upcoming year.
+
+\hypertarget{vocabulary-4}{%
+\section{Vocabulary}\label{vocabulary-4}}
+
+\begin{itemize}
+\tightlist
+\item
+  income tax brackets: 收入税级别
+\item
+  IRS: 美国国税局
+\item
+  federal taxes: 联邦税
+\item
+  adjustments for inflation: 通胀调整
+\item
+  tax liability: 税务责任
+\item
+  cost of living: 生活成本
+\item
+  income thresholds: 收入门槛
+\item
+  higher tax bracket: 更高的税级
+\item
+  standard deduction: 标准扣除
+\item
+  personal exemption: 个人免税额
+\item
+  taxable income: 应税收入
+\item
+  tax liability: 税务责任
+\item
+  accurately calculating: 准确计算
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{professional-english-5}{%
+\chapter{Professional English}\label{professional-english-5}}
+
+Jerome Powell Outlines Cautious Approach to Raising Rates or Declaring
+End to Hikes
+
+Federal Reserve Chairman Jerome Powell has outlined a cautious approach
+to raising interest rates or declaring an end to rate hikes, signaling
+that the central bank will prioritize economic stability over aggressive
+monetary tightening. In a speech at the Economic Club of Washington,
+Powell emphasized the need for patience and flexibility in monetary
+policy, stating that the Fed will be data-dependent and will adjust its
+stance accordingly. He acknowledged the recent volatility in financial
+markets and the potential risks posed by global economic slowdown and
+trade tensions. Powell's remarks suggest that the Fed is taking a more
+cautious stance in response to the changing economic landscape, which
+could impact future rate hike decisions.
+
+\hypertarget{simplified-english-5}{%
+\section{Simplified English}\label{simplified-english-5}}
+
+Jerome Powell, the head of the Federal Reserve, has explained that the
+central bank will be careful when it comes to raising interest rates or
+deciding to stop increasing them. This means that the Fed will
+prioritize keeping the economy stable rather than aggressively
+tightening monetary policy. Powell made these comments during a speech
+at the Economic Club of Washington. He stressed the importance of being
+patient and flexible in making decisions about monetary policy. Powell
+also mentioned that the Fed will rely on data and adjust its approach
+accordingly. He acknowledged that financial markets have been unstable
+recently and that there are potential risks due to a global economic
+slowdown and trade tensions. Powell's remarks indicate that the Fed is
+taking a more cautious approach in response to the changing economic
+situation, which could affect future decisions about raising interest
+rates.
+
+\hypertarget{spoken-english-5}{%
+\section{Spoken English}\label{spoken-english-5}}
+
+Federal Reserve Chairman Jerome Powell has outlined a cautious approach
+to raising interest rates or declaring an end to rate hikes. In a speech
+at the Economic Club of Washington, Powell emphasized the need for
+patience and flexibility in monetary policy. He stated that the Fed will
+be data-dependent and will adjust its stance accordingly. Powell
+acknowledged the recent volatility in financial markets and the
+potential risks posed by global economic slowdown and trade tensions.
+These remarks suggest that the Fed is taking a more cautious stance in
+response to the changing economic landscape, which could impact future
+rate hike decisions.
+
+\hypertarget{spoken-english-with-pause-tag-5}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag-5}}
+
+Federal Reserve Chairman Jerome Powell has outlined a cautious approach
+to raising interest rates or declaring an end to rate hikes. In a speech
+at the Economic Club of Washington, Powell emphasized the need for
+patience and flexibility in monetary policy. He stated that the Fed will
+be data-dependent and will adjust its stance accordingly. Powell
+acknowledged the recent volatility in financial markets and the
+potential risks posed by global economic slowdown and trade tensions.
+These remarks suggest that the Fed is taking a more cautious stance in
+response to the changing economic landscape which could impact future
+rate hike decisions.
+
+\hypertarget{vocabulary-5}{%
+\section{Vocabulary}\label{vocabulary-5}}
+
+\begin{itemize}
+\tightlist
+\item
+  cautious approach: 谨慎的方法
+\item
+  interest rates: 利率
+\item
+  rate hikes: 加息
+\item
+  prioritize: 优先考虑
+\item
+  monetary tightening: 货币紧缩
+\item
+  data-dependent: 依赖数据的
+\item
+  volatility: 波动性
+\item
+  global economic slowdown: 全球经济放缓
+\item
+  trade tensions: 贸易紧张局势
+\item
+  changing economic landscape: 变化中的经济形势
+\item
+  impact: 影响
+\item
+  monetary policy: 货币政策
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{hackers-hit-u.s.-arm-of-chinese-bank---wall-street-journal}{%
+\chapter{Hackers Hit U.S. Arm of Chinese Bank - Wall Street
+Journal}\label{hackers-hit-u.s.-arm-of-chinese-bank---wall-street-journal}}
+
+\hypertarget{professional-english-6}{%
+\section{Professional English}\label{professional-english-6}}
+
+In a recent cyber attack, hackers targeted the U.S. division of a major
+Chinese bank, according to sources. The attack, which occurred last
+week, resulted in the theft of sensitive customer data. The bank has not
+disclosed the number of affected customers or the extent of the data
+breach. However, experts believe that the hackers gained access to
+personal and financial information, including account numbers and social
+security numbers. The bank is working closely with law enforcement
+agencies to investigate the incident and enhance its cybersecurity
+measures. This attack highlights the growing threat of cybercrime and
+the need for organizations to strengthen their defenses against such
+attacks. Cybersecurity experts recommend that individuals and businesses
+regularly update their security software, use strong and unique
+passwords, and be cautious of suspicious emails or links. The
+investigation into this cyber attack is ongoing, and further details are
+expected to emerge in the coming weeks.
+
+\hypertarget{simplified-english-6}{%
+\section{Simplified English}\label{simplified-english-6}}
+
+According to sources, hackers recently attacked the U.S. branch of a big
+Chinese bank. The attack happened last week and resulted in the stealing
+of important customer information. The bank hasn't said how many
+customers were affected or how much data was stolen. However, experts
+think that the hackers got access to personal and financial information,
+like account numbers and social security numbers. The bank is working
+with the police to investigate the attack and make its cybersecurity
+stronger. This attack shows that cybercrime is becoming a bigger
+problem, and organizations need to protect themselves better.
+Cybersecurity experts say that people and businesses should update their
+security software regularly, use strong and different passwords, and be
+careful with suspicious emails or links. The investigation into this
+attack is still happening, and more information will come out in the
+next few weeks.
+
+\hypertarget{spoken-english-6}{%
+\section{Spoken English}\label{spoken-english-6}}
+
+Hackers have targeted the U.S. division of a major Chinese bank in a
+recent cyber attack. The attack, which took place last week, resulted in
+the theft of sensitive customer data. The bank has not disclosed the
+number of affected customers or the extent of the data breach. However,
+experts believe that the hackers gained access to personal and financial
+information, including account numbers and social security numbers. The
+bank is currently working closely with law enforcement agencies to
+investigate the incident and enhance its cybersecurity measures. This
+attack serves as a stark reminder of the growing threat of cybercrime
+and the urgent need for organizations to bolster their defenses against
+such attacks. Cybersecurity experts strongly advise individuals and
+businesses to regularly update their security software, employ strong
+and unique passwords, and exercise caution when dealing with suspicious
+emails or links. The investigation into this cyber attack is still
+ongoing, and more details are expected to emerge in the coming weeks.
+
+\hypertarget{spoken-english-with-pause-tag-6}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag-6}}
+
+Hackers have targeted the U.S. division of a major Chinese bank\ldots{}
+in a recent cyber attack. The attack, which took place last week\ldots{}
+resulted in the theft of sensitive customer data. The bank has not
+disclosed the number of affected customers\ldots{} or the extent of the
+data breach. However, experts believe that the hackers gained access to
+personal and financial information\ldots{} including account numbers and
+social security numbers. The bank is currently working closely with law
+enforcement agencies\ldots{} to investigate the incident and enhance its
+cybersecurity measures. This attack serves as a stark reminder\ldots{}
+of the growing threat of cybercrime\ldots{} and the urgent need for
+organizations to bolster their defenses against such attacks.
+Cybersecurity experts strongly advise individuals and businesses\ldots{}
+to regularly update their security software\ldots{} employ strong and
+unique passwords\ldots{} and exercise caution when dealing with
+suspicious emails or links. The investigation into this cyber attack is
+still ongoing\ldots{} and more details are expected to emerge\ldots{} in
+the coming weeks.
+
+\hypertarget{vocabulary-6}{%
+\section{Vocabulary}\label{vocabulary-6}}
+
+\begin{itemize}
+\tightlist
+\item
+  cyber attack /ˈsaɪbər əˈtæk/ : 网络攻击
+\item
+  data breach /ˈdeɪtə briːtʃ/ : 数据泄露
+\item
+  cybersecurity /ˈsaɪbərˌsɪkjʊərəti/ : 网络安全
+\item
+  theft /θɛft/ : 盗窃
+\item
+  sensitive /ˈsɛnsɪtɪv/ : 敏感的
+\item
+  customer data /ˈkʌstəmər ˈdeɪtə/ : 客户数据
+\item
+  personal information /ˈpɜrsənəl ˌɪnfərˈmeɪʃən/ : 个人信息
+\item
+  financial information /faɪˈnænʃəl ˌɪnfərˈmeɪʃən/ : 财务信息
+\item
+  account numbers /əˈkaʊnt ˈnʌmbərz/ : 账号
+\item
+  social security numbers /ˈsoʊʃəl sɪˈkjʊrəti ˈnʌmbərz/ : 社会保障号码
+\item
+  law enforcement agencies /lɔ ɪnˈfɔrsmənt ˈeɪdʒənsiz/ : 执法机构
+\item
+  cybersecurity measures /ˈsaɪbərˌsɪkjʊərəti ˈmɛʒərz/ : 网络安全措施
+\item
+  cybercrime /ˈsaɪbər kraɪm/ : 网络犯罪
+\item
+  update /ʌpˈdeɪt/ : 更新
+\item
+  security software /sɪˈkjʊrəti ˈsɔftwɛr/ : 安全软件
+\item
+  strong and unique passwords /strɔŋ ænd juˈnik ˈpæsˌwɜrdz/ : 强密码
+\item
+  suspicious emails or links /səsˈpɪʃəs ˈiːmeɪlz ɔr lɪŋks/ :
+  可疑的电子邮件或链接
+\item
+  investigation /ɪnˌvɛstɪˈgeɪʃən/ : 调查
+\item
+  emerge /ɪˈmɜrdʒ/ : 浮现，出现
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{your-money-needs-to-go-on-a-vacation---wsj}{%
+\chapter{``Your Money Needs to Go on a Vacation'' -
+WSJ}\label{your-money-needs-to-go-on-a-vacation---wsj}}
+
+\hypertarget{professional-english-7}{%
+\section{Professional English}\label{professional-english-7}}
+
+According to a recent article in the Wall Street Journal, financial
+experts are advising people to allocate a portion of their savings for a
+vacation. The article highlights the importance of taking a break from
+work and the positive impact it can have on one's mental and physical
+well-being. By investing in experiences and creating lasting memories,
+individuals can enhance their overall happiness and life satisfaction.
+The article also emphasizes the need for careful financial planning and
+budgeting to ensure that the vacation does not lead to unnecessary debt.
+Overall, the message is clear: it's time to prioritize self-care and
+enjoy a well-deserved vacation.
+
+\hypertarget{simplified-english-7}{%
+\section{Simplified English}\label{simplified-english-7}}
+
+A recent article in the Wall Street Journal suggests that it's a good
+idea to set aside some money for a vacation. The article explains that
+taking a break from work is important for our mental and physical
+health. By spending money on experiences and making lasting memories, we
+can increase our overall happiness and satisfaction with life. However,
+it's important to plan and budget carefully so that we don't end up with
+too much debt. The main point is that we should take care of ourselves
+and enjoy a vacation.
+
+\hypertarget{spoken-english-7}{%
+\section{Spoken English}\label{spoken-english-7}}
+
+In a recent article from the Wall Street Journal, financial experts are
+saying that it's time to let your money take a vacation. They argue that
+taking a break from work is not only good for your mental and physical
+health but also for your overall happiness. By investing in experiences
+and creating lasting memories, you can enhance your life satisfaction.
+But here's the catch: you need to plan and budget carefully to avoid
+unnecessary debt. So, go ahead and treat yourself to a well-deserved
+vacation.
+
+\hypertarget{spoken-english-with-pause-tag-7}{%
+\section{Spoken English with pause
+tag}\label{spoken-english-with-pause-tag-7}}
+
+In a recent article from the Wall Street Journal, financial experts are
+saying that it's time to let your money take a vacation. They argue that
+taking a break from work is not only good for your mental and physical
+health but also for your overall happiness. By investing in experiences
+and creating lasting memories you can enhance your life satisfaction.
+But here's the catch: you need to plan and budget carefully to avoid
+unnecessary debt. So, go ahead and treat yourself to a well-deserved
+vacation.
+
+\hypertarget{vocabulary-7}{%
+\section{Vocabulary}\label{vocabulary-7}}
+
+\begin{itemize}
+\tightlist
+\item
+  Allocate /ˈæləˌkeɪt/ (v.): 分配，拨出
+\item
+  Savings /ˈseɪvɪŋz/ (n.): 储蓄
+\item
+  Well-being /ˌwɛlˈbiɪŋ/ (n.): 幸福，健康
+\item
+  Budgeting /ˈbʌdʒɪtɪŋ/ (n.): 预算
+\item
+  Debt /dɛt/ (n.): 债务
+\item
+  Prioritize /praɪˈɔrəˌtaɪz/ (v.): 优先考虑
+\item
+  Self-care /sɛlf kɛr/ (n.): 自我照顾
+\item
+  Let your money take a vacation: 让你的钱度个假
+\item
+  Catch /kætʃ/ (n.): 问题，难题
+\item
+  Treat yourself: 好好犒劳自己
+\item
+  Well-deserved /wɛl dɪˈzɜrvd/ (adj.): 应得的，理所应当的
+\end{itemize}
+
+
+
+\end{document}

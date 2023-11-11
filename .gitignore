@@ -1,4 +1,5 @@
-data/
+_book/
+*.tex
 data/
 .env
 .pytest_cache/
