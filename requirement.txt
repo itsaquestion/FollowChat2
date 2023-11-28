@@ -9,3 +9,5 @@ pandas
 GoogleNews
 selenium
 quarto
+
+TTS>=0.20

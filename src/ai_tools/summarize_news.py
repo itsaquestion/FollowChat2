@@ -1,4 +1,9 @@
 """generate news  script"""
+import sys
+from pathlib import Path
+
+# 添加上上层的到搜索路径
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import re
 import textwrap
@@ -30,29 +35,28 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     
     - 你是一个英语教育专家，特长是面向第二语言的英语口语和写作教育。请把上述新闻，写成3种英语学习材料，分步骤进行：
 
-    step 0: 提取新闻的标题，总结成较短的标题，包含新闻来源。
-    step 1: 新闻总结，专业英语，400单词
-    step 2: 简单英语版本，面向第二语言的学习者，400单词
-    step 3: 英语口语版本，使用 CBS 60 minutes 的语言风格，250单词
-    step 4: 对上一个版本中的长句，比如从句或者复合句，加入适当的停顿标签<pp>，符合人类说话的停顿节奏。
+    step 0: 提取新闻的标题，总结成较短的标题
+    step 1: 新闻总结，专业英语，400单词，不超过2段。
+    step 2: 简单英语版本，面向学历较高的第二语言的学习者，400单词。
+    step 3: 英语口语版本，使用 CBS 60 minutes 的语言风格，250单词。
+    step 4: 对上一个版本中的长句，比如从句或者复合句，加入适当的停顿标签 <pp>，符合人类说话的停顿节奏。
     step 5: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
     
     - generate 3 summeries, strict adherence to formatting examples.
 
     - Formatting Example:
-    [Step 0: Relatively short Title includes the source]
-    Title here.
-    [Step 1: 400 words News Summary, professional English]
+    [Step 0: Relatively short Title]
+    Title here
+    [Step 1: 400 words News Summary, professional English, no more than two paragraph]
     summary here
-    [Step 2: 400 words Simplified English for Second Language Learners]
+    [Step 2: 400 words Simplified English for Well Educated Second Language Learners]
     summary here
-    [Step 3: 250 words Spoken English, use CBS 60 minutes style]
+    [Step 3: Spoken English Version for Well Educated Second Language Learners]
     summary here
-    [Step 4: New version of Spoken English with pause tag]
+    [Step 4: Renew version of Spoken English with pause tag <pp> to make long sentences easier to read]
     summary here
     [Step 5: words and phrases should be noticed for learners]
-    word/phrase /phonetic if it's a word/: meaning in Chinese.
-    
+    word or phrase /phonetic if it's a word/: meaning in Chinese.
     """)
     
     if show: print(summarize_prompt)
@@ -75,12 +79,8 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
 
 
 if __name__ == "__main__":
-    # import doctest
-    # doctest.testmod()
 
-    # print('测试完成')
-    url = 'https://www.reuters.com/world/china/chinas-largest-bank-icbc-hit-by-ransomware-software-ft-2023-11-09/'
+    url = 'https://www.wsj.com/tech/ai/microsoft-needs-a-better-seat-at-openais-table-64bc3c3b?mod=tech_lead_pos1'
+    #url = 'https://www.reuters.com/world/china/chinas-largest-bank-icbc-hit-by-ransomware-software-ft-2023-11-09/'
     print(url)
-    #result = generate_multi_style_summaries(url, show=True)
-    #print("\n\n")
-    #print(result)
+    result = generate_multi_style_summaries(url, show=True)
