@@ -9,5 +9,6 @@ pandas
 GoogleNews
 selenium
 quarto
+icecream
 
 TTS>=0.20

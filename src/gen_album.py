@@ -1,9 +1,9 @@
 # %%
-from src.ms_tts.audio_tools import merge_mp3_files_in_directory, combine_wav
+from src.tts.audio_tools import merge_mp3_files_in_directory, combine_wav
 from src.web_tools import get_news_content
 from src.ai_tools.summarize_news import generate_multi_style_summaries
 from src.dialogue_script_processor import process_chat
-from src.ms_tts.text_to_audio import script_to_wav_files
+from src.tts.xttsv2 import script_to_wav_files
 from src.utils import *
 from datetime import datetime
 
@@ -38,8 +38,8 @@ def gen_audio_from_page(url, show=False):
     print('')
     print('\n处理对话 =======')
 
-    new_script = process_chat('Aria: ' + multi_summaries['spoken_pp'])
-    new_script = 'Jenny: ' + multi_summaries['title'] + '\n' + new_script
+    new_script = process_chat('Voa: ' + multi_summaries['spoken_pp'])
+    new_script = 'Kathy: ' + multi_summaries['title'] + '\n' + new_script
     print(new_script)
 
     print('\n生成音频 =======')

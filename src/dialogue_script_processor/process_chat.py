@@ -100,7 +100,8 @@ def split_by_comma(sentences):
             else:
                 current_phrase = temp_phrase
 
-    result = [s.replace(' ,',',') for s in result]
+    result = [s.replace(' ,',', ') for s in result]
+    result = [s.replace('  ',' ') for s in result]
     
     return result
 
