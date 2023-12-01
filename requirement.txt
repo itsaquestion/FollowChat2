@@ -12,3 +12,5 @@ quarto
 icecream
 
 TTS>=0.20
+
+paramiko

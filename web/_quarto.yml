@@ -4,16 +4,11 @@ project:
 book:
   title: "News"
   author: "lee"
-  date: "2023-11-28"
+  date: "2023-12-01"
   chapters:
     - index.qmd
-    - 20231128-2316_News_Virgin Atlantic's Low-Carbon Fuel Powers Maiden Transatlantic Flight.md
-    - 20231128-2324_News_Oil on Track for Losing Streak Amid Hopes of Further OPEC Cuts.md
-    - 20231128-2327_News_Oil on Track for Snap Losing Streak on Hopes of Further OPEC Cuts.md
-    - 20231128-2329_News_Virgin Atlantic's Low-Carbon Fuel Powers Maiden Transatlantic Flight.md
-    - 20231128-2331_News_Indian Rescuers Close to Reaching Trapped Men in Tunnel.md
-    - 20231128-2334_News_Futures Subdued Ahead of Fed Officials' Comments, Zscaler Falls.md
-    - 20231128-2336_News_Eleven Workers Dead in Impala Platinum Mine Incident.md
+    - 20231201-1142_News_China's Evergrande Seeks to Avoid Liquidation with Last-Ditch Debt Plan.md
+    - 20231201-1144_News_Wall St. Futures Edge Higher on Easing Inflation Hopes.md
 
 
 format:
