@@ -9,7 +9,7 @@ if __name__ == '__main__':
     
     os.environ['HTTP_PROXY'] = 'http://127.0.0.1:5035'
     os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:5035'
-    news_info = google_news.get_news_reuters('').head(1)[['title', 'link']]
+    news_info = google_news.get_news_reuters('').head(5)[['title', 'link']]
 
     print(news_info)
     
@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
         conver_all_scripts()
         
-        # build_web()
+        build_web()
 
-        # upload_all()
+        upload_all()
 
