@@ -34,7 +34,8 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     ```
     
     - 你是一个英语教育专家，特长是面向第二语言的英语口语和写作教育。请把上述新闻，写成3种英语学习材料，分步骤进行：
-
+    - 以下全部总结，不要使用符号缩写，而要使用便于阅读的形式。例如: "$1 billion" -> "1 billion dollers"
+    
     step 0: 提取新闻的标题，总结成较短的标题
     step 1: 新闻总结，专业英语，400单词，不超过2段。
     step 2: 简单英语版本，面向学历较高的第二语言的学习者，400单词。
@@ -53,7 +54,7 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     summary here
     [Step 3: Spoken English Version for Well Educated Second Language Learners]
     summary here
-    [Step 4: Renew version of Spoken English with pause tag <pp> to make long sentences easier to read]
+    [Step 4: Renew of Spoken English version with pause tag <pp> to make long sentences easier to read]
     summary here
     [Step 5: words and phrases should be noticed for learners]
     word or phrase /phonetic if it's a word/: meaning in Chinese.

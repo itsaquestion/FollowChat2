@@ -4,11 +4,19 @@ project:
 book:
   title: "News"
   author: "lee"
-  date: "2023-12-01"
+  date: "2023-12-02"
   chapters:
     - index.qmd
-    - 20231201-1142_News_China's Evergrande Seeks to Avoid Liquidation with Last-Ditch Debt Plan.md
-    - 20231201-1144_News_Wall St. Futures Edge Higher on Easing Inflation Hopes.md
+    - 20231202-2118_News_US to Invest $3 Billion in Green Climate Fund.md
+    - 20231202-2127_News_US to Invest $3 Billion in Green Climate Fund.md
+    - 20231202-2128_News_US to Invest $3 Billion in Green Climate Fund.md
+    - 20231202-2130_News_US to Invest $3 Billion in Green Climate Fund.md
+    - 20231202-2135_News_Mossad Team Meets with Qatar to Discuss Gaza Truce Restart.md
+    - 20231202-2140_News_Mossad Team in Qatar to Discuss Gaza Truce Restart.md
+    - 20231202-2141_News_US to Invest $3 Billion in Green Climate Fund.md
+    - 20231202-2146_News_US to Invest $3 Billion in Green Climate Fund.md
+    - 20231202-2150_News_US to Invest $3 Billion in Green Climate Fund.md
+    - 20231202-2154_News_US to Invest $3 Billion in Green Climate Fund.md
 
 
 format:

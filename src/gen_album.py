@@ -39,7 +39,7 @@ def gen_audio_from_page(url, show=False):
     print('\n处理对话 =======')
 
     new_script = process_chat('Voa: ' + multi_summaries['spoken_pp'])
-    new_script = 'Kathy: ' + multi_summaries['title'] + '\n' + new_script
+    new_script = 'Talor: ' + multi_summaries['title'] + '.\n' + new_script
     print(new_script)
 
     print('\n生成音频 =======')
@@ -82,3 +82,22 @@ def gen_album(urls):
     #merged_file = merge_mp3_files_in_directory('data/output')
 
     #move_and_tag(merged_file, 'data/album', tag)
+
+if __name__ == "__main__":
+    
+
+    print('')
+    print('\n处理对话 =======')
+
+    new_script = process_chat('Voa: ' + multi_summaries['spoken_pp'])
+    new_script = 'Talor: ' + multi_summaries['title'] + '.\n' + new_script
+    print(new_script)
+
+    print('\n生成音频 =======')
+    script_to_wav_files(new_script)
+
+    print('\n合并音频 =======')
+
+    file_name = (base_name + '.mp3').replace('..', '.')
+    combine_wav(file_name)
+    print('完成')

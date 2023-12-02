@@ -10,14 +10,61 @@ from tqdm import tqdm
 
 import torch
 from TTS.api import TTS
+import wave
+import numpy as np
+import sys
 
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+
+def load_StyleTTS2(package_path = 'D:\\tts\\StyleTTS2'):
+    last_wd = os.getcwd()
+    sys.path.append(package_path)
+    os.chdir(package_path)
+    from StyleTTS2 import StyleTTS2
+
+    tts = StyleTTS2()
+
+    os.chdir(last_wd)
+
+    return tts
+
+
+def wave_to_file(wav, file_path):
+    rate = 24000  # 采样率
+    nchannels = 1  # 声道数
+    sampwidth = 2  # 样本宽度（以字节为单位）
+
+    # 创建一个 wave 文件
+    with wave.open(file_path, 'w') as wf:
+        wf.setnchannels(nchannels)
+        wf.setsampwidth(sampwidth)
+        wf.setframerate(rate)
+
+        # 确保音频数据是 int16 格式
+        wav_int16 = np.int16(wav * 32767) if wav.dtype != np.int16 else wav
+
+        # 写入数据
+        wf.writeframes(wav_int16.tobytes())
+
+# print('load xtts_v2')
+# tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+xtts_v2 = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+
+style_tts = load_StyleTTS2()
+
+def tts_to_file(text, speaker_wav, file_path, backend =  None):
+    print(f'\n[TTS backend: {backend}]')
+    if backend == 'style_tts2':
+        ref_s = style_tts.compute_style(speaker_wav)
+        wav = style_tts.inference(text, ref_s, alpha=0.3, beta=0.7, diffusion_steps=5, embedding_scale=1)
+        wave_to_file(wav,file_path)
+    else:
+        xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
 
 # %%
-def script_to_wav_files(chat_script, output_dir='data/fragments'):
+def script_to_wav_files(chat_script, output_dir='data/fragments', backend =  'style_tts2' ):
     
     """把原始对话文本，首先重新断句，然后转化音频文件，按顺序命名为001.wav,002.wav
 
@@ -28,6 +75,8 @@ def script_to_wav_files(chat_script, output_dir='data/fragments'):
 
         output_dir (str): 输出wav文件的目录
     """
+
+    chat_script = chat_script.replace("-",' ')
 
     # 如果output文件夹存在，则删除
     if os.path.exists(output_dir):
@@ -46,7 +95,8 @@ def script_to_wav_files(chat_script, output_dir='data/fragments'):
         speaker, text = [x.strip() for x in chat.split(':')][:2]
 
         file_path = output_dir + '/'+'{:0>3}'.format(counter) + '.wav'
-        tts.tts_to_file(text=text, speaker_wav=f"voices/{speaker}.wav", language="en", file_path=file_path )
+        # tts.tts_to_file(text=text, speaker_wav=f"voices/{speaker}.wav", language="en", file_path=file_path )
+        tts_to_file(text=text,speaker_wav=f"voices/{speaker}.wav", file_path=file_path, backend = backend)
 
 if __name__ == "__main__":
     import os
@@ -60,5 +110,6 @@ if __name__ == "__main__":
     # 更改当前工作目录
     # print(parent_parent_dir)
 
-    text  = "Major indexes were little changed at open. Fast-fashion giant Shein filed for what could be one of the biggest market debuts in years. Treasury yields edged up and oil prices rose."
+    text  = "Voa: Major indexes were little changed at open. Fast-fashion giant Shein filed for what could be one of the biggest market debuts in years. Treasury yields edged up and oil prices rose."
+    
     script_to_wav_files(text)

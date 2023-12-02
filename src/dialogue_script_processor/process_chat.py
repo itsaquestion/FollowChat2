@@ -120,6 +120,11 @@ def process_chat(chat_content):
           Aria: I wouldn't have anticipated that.'
     """
     processed_lines = []
+    chat_content = chat_content.replace('<pp>,',','
+                                        ).replace('<pp>.','.'
+                                                  ).replace('. <pp>','. '
+                                                            ).replace(', <pp>',', ')
+
     lines = chat_content.split("\n")
 
     for line in lines:
