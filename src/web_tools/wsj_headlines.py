@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# 添加上上层的到搜索路径
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
 from src.web_tools.get_page import get_page
 from bs4 import BeautifulSoup
 import pandas as pd

@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: "News"
+  author: "lee"
+  date: "2023-12-07"
+  chapters:
+    - index.qmd
+    - 20231207-1059_News_Futures edge up on Fed pivot hopes, jobs data in focus.md
+    - 20231207-1100_News_Citi's 2023 Revenue Expected to be at Lower End of Forecast, CFO Says.md
+    - 20231207-1101_News_Moody's Outlook Cut Complicates Beijing's War Against Market Bears.md
+    - 20231207-1102_News_ByteDance Offers Share Buyback to Investors.md
+    - 20231207-1102_News_Italy Signs Belt and Road Agreement with China.md
+
+
+format:
+  html:
+    theme: [cosmo, nord.scss,custom.scss]
+  pdf:
+    documentclass: scrreprt
+
+
+

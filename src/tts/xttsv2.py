@@ -1,3 +1,4 @@
+# %%
 """用于把字符转化语音文件
 """
 import os
@@ -17,7 +18,7 @@ import sys
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-
+# %%
 def load_StyleTTS2(package_path = 'D:\\tts\\StyleTTS2'):
     last_wd = os.getcwd()
     sys.path.append(package_path)
@@ -55,7 +56,7 @@ xtts_v2 = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 style_tts = load_StyleTTS2()
 
 def tts_to_file(text, speaker_wav, file_path, backend =  None):
-    print(f'\n[TTS backend: {backend}]')
+    # print(f'\n[TTS backend: {backend}]')
     if backend == 'style_tts2':
         ref_s = style_tts.compute_style(speaker_wav)
         wav = style_tts.inference(text, ref_s, alpha=0.3, beta=0.7, diffusion_steps=5, embedding_scale=1)
@@ -110,6 +111,6 @@ if __name__ == "__main__":
     # 更改当前工作目录
     # print(parent_parent_dir)
 
-    text  = "Voa: Major indexes were little changed at open. Fast-fashion giant Shein filed for what could be one of the biggest market debuts in years. Treasury yields edged up and oil prices rose."
+    text  = "It is a repetitive, painful and familiar feeling for Gershkovich’s vast and close-knit network of friends. It has motivated The Wall Street Journal reporter’s friends who are pushing for his release, helping him stay connected to the outside world and keeping his name and plight on others’ minds."
     
     script_to_wav_files(text)

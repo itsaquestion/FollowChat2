@@ -19,9 +19,9 @@ def script_to_md(script_path):
     with open(script_path, "r", encoding="utf-8") as f:
         text = f.read()
 
-    text = replace_step_with_caption(text, 0, "# ", False)
-    text = replace_step_with_caption(text, 1, "## Professional English")
-    text = replace_step_with_caption(text, 2, "## Simplified English")
+    text = replace_step_with_caption(text, 1, "# ", False)
+    text = replace_step_with_caption(text, 2, "## Professional English")
+    # text = replace_step_with_caption(text, 2, "## Simplified English")
     text = replace_step_with_caption(text, 3, "## Spoken English")
     text = replace_step_with_caption(text, 4, "## Spoken English with pause tag")
 
@@ -109,4 +109,7 @@ def conver_all_scripts():
         f.write(quarto_yml)
 
 if __name__ == "__main__":
-    conver_all_scripts()
+    # conver_all_scripts()
+    text = script_to_md(r'D:\dev\FollowChat2\data\scripts\20231207-1046_News_Futures Edge Up on Fed Pivot Hopes, Jobs Data in Focus.txt')
+    print(text)
+
