@@ -23,9 +23,9 @@ def script_to_md(script_path):
     text = replace_step_with_caption(text, 2, "## Professional English")
     # text = replace_step_with_caption(text, 2, "## Simplified English")
     text = replace_step_with_caption(text, 3, "## Spoken English")
-    text = replace_step_with_caption(text, 4, "## Spoken English with pause tag")
+    # text = replace_step_with_caption(text, 4, "## Spoken English with pause tag")
 
-    text = replace_step_with_caption(text, 5, "## Vocabulary")
+    text = replace_step_with_caption(text, 4, "## Vocabulary")
 
     return text
 

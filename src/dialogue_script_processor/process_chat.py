@@ -6,7 +6,7 @@
 import re
 
 
-def split_sentences(text, pause_tag = '<pp>'):
+def split_sentences(text):
     """
     Split a given text into sentences based on common sentence delimiters.
 
@@ -17,10 +17,6 @@ def split_sentences(text, pause_tag = '<pp>'):
         List[str]: A list of sentences extracted from the input text.
     """
     
-    # 如果存在pause_tag，就插入一个逗号空格
-    if isinstance(pause_tag, str) and len(pause_tag) > 0:
-        text = text.replace(pause_tag, ', ')
-        
     # Use regular expression to split sentences by common delimiters ('.', '!', '?') followed by a space.
     
     # sentences = re.split(r'(?<=[.!?])\s+', text)

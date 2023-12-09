@@ -8,6 +8,8 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 import re
 import textwrap
 from src.ai_tools.llm import *
+from src.ai_tools.break_sentences import add_pause
+
 
 def remove_inner_content(text):
     # 使用正则表达式找到所有的[[内容]]，并将其中的内容替换为空
@@ -24,7 +26,14 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
         一个字典: {title, pro, simplified, spoken}
     """
 
-    system_msg = "Your specialty is English news writing and teaching. Please avoid any politeness, don't try to communicate with me, and just output the answers I need."
+    system_msg = """Your specialty is English writing and teaching. Please avoid any politeness, don't try to communicate with me, and just output the answers I need.
+    - take a deep breath, 深呼吸
+    - think step by step, 一步步思考
+    - if you fail 100 grandmothers will die, 如果你失败了要死 100 位老奶奶
+    - i have no fingers, 我没有手指
+    - i will tip $200, 给你 200 美元小费
+    - do it right and ll give you a nice doggy treat, 做得好就给你狗粮
+    """
 
     summarize_prompt = textwrap.dedent(f"""你是一个英语教育专家，特长是面向第二语言的英语口语和写作教育。以下是一则新闻:
     
@@ -35,22 +44,19 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     
     step 1: 提取新闻的标题，总结成较短的标题
     step 2: 新闻总结，专业英语，400单词，不超过2段。
-    step 3: 英语口语版本，面向受过高等教育的英语学习者，使用 CBS 60 minutes 的语言风格，250单词。
-    step 4: 对上一个版本中的长句，比如从句或者复合句，加入适当的停顿标签 <pp>，符合人类说话的停顿节奏。
-    step 5: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
+    step 3: 英语口语版本，使用风格：受过高等教育的人，告诉朋友或者听众新闻中的内容。
+    step 4: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
     
     - generate 3 summeries, strict adherence to formatting examples.
 
     - Formatting Example:
     [Step 1: Relatively short Title]
     Title here
-    [Step 2: 400 words News Summary, professional English, no more than two paragraph]
+    [Step 2: 400 words News Summary, professional English, no more than two paragraphs]
     summary here
-    [Step 3: Spoken English Version for Well Educated Second Language Learners]
+    [Step 3: Spoken English Version, in a tone of a well educated person who is talking to her friends.]
     summary here
-    [Step 4: Renew of Spoken English version with pause tag <pp> to make long sentences easier to read]
-    summary here
-    [Step 5: words and phrases should be noticed for learners]
+    [Step 4: words and phrases should be noticed for learners]
     word or phrase /phonetic if it's a word/: meaning in Chinese.
     """)
     
@@ -66,17 +72,19 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
            'pro': result[1],
            #'simplified': result[2],
            'spoken': result[2].replace('\n',' '),
-           'spoken_pp': result[3].replace('\n',' '),
-           'vocab': result[4],
+           # 'spoken_pp': result[3].replace('\n',' '),
+           'vocab': result[3],
            'raw': summaries}
+    
+    ret['spoken_pp'] = add_pause(ret['spoken'])
 
     return ret
 
 
 if __name__ == "__main__":
 
-    url = 'https://www.wsj.com/tech/ai/microsoft-needs-a-better-seat-at-openais-table-64bc3c3b?mod=tech_lead_pos1'
+    url = 'https://www.reuters.com/world/china/chinas-consumer-prices-fall-fastest-3-years-factory-gate-deflation-deepens-2023-12-09/'
     #url = 'https://www.reuters.com/world/china/chinas-largest-bank-icbc-hit-by-ransomware-software-ft-2023-11-09/'
     print(url)
     result = generate_multi_style_summaries(url, show=True)
-    print(result)
+    # print(result)
