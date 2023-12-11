@@ -1,26 +1,25 @@
-from src.gen_album import gen_album
-from src.web_tools import google_news
+# %%
 from src.dialogue_script_processor.script_to_md import conver_all_scripts
+from src.gen_album import gen_album
+from src.news import get_headlines_reuters
 from src.build_and_deploy import build_web
 from src.uploader import upload_all
-import os
 
-if __name__ == '__main__':
+news_info = get_headlines_reuters()
+
+news_info = news_info.head(5)
+
+print(news_info)
+
+# %%
+if news_info is not None:
+    urls = news_info['url']
+    print(urls)
     
-    os.environ['HTTP_PROXY'] = 'http://127.0.0.1:5035'
-    os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:5035'
-    news_info = google_news.get_news_reuters('').head(5)[['title', 'link']]
+    gen_album(urls)
 
-    print(news_info)
+    conver_all_scripts()
     
-    if news_info is not None:
-        urls = news_info['link']
-        
-        gen_album(urls)
+    build_web()
 
-        conver_all_scripts()
-        
-        build_web()
-
-        upload_all()
-
+    upload_all()

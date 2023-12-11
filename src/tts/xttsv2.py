@@ -53,16 +53,20 @@ def wave_to_file(wav, file_path):
 # tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 xtts_v2 = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 
-style_tts = load_StyleTTS2()
+# style_tts = load_StyleTTS2()
+
+# def tts_to_file(text, speaker_wav, file_path, backend =  None):
+#     # print(f'\n[TTS backend: {backend}]')
+#     if backend == 'style_tts2':
+#         ref_s = style_tts.compute_style(speaker_wav)
+#         wav = style_tts.inference(text, ref_s, alpha=0.3, beta=0.7, diffusion_steps=5, embedding_scale=1)
+#         wave_to_file(wav,file_path)
+#     else:
+#         xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
 
 def tts_to_file(text, speaker_wav, file_path, backend =  None):
-    # print(f'\n[TTS backend: {backend}]')
-    if backend == 'style_tts2':
-        ref_s = style_tts.compute_style(speaker_wav)
-        wav = style_tts.inference(text, ref_s, alpha=0.3, beta=0.7, diffusion_steps=5, embedding_scale=1)
-        wave_to_file(wav,file_path)
-    else:
-        xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
+    xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
+
 
 # %%
 def script_to_wav_files(chat_script, output_dir='data/fragments', backend =  'style_tts2' ):
@@ -89,6 +93,9 @@ def script_to_wav_files(chat_script, output_dir='data/fragments', backend =  'st
 
     counter = 0
     for chat in tqdm(chat_script.split('\n')):
+
+        # 尝试去掉行末的','
+        chat = chat.strip().rstrip(',')
         counter += 1
         #print(counter)
         if not ':' in chat:

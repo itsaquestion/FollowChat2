@@ -3,6 +3,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
+import sys
+from pathlib import Path
+
+import requests
+from readability import Document
+from bs4 import BeautifulSoup
+
+
+# 添加上上层的到搜索路径
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 def connect(hub_url = "http://localhost:4444/wd/hub", do_test=False):
     
@@ -56,3 +66,40 @@ def get_page(url, hub_url = "http://localhost:4444/wd/hub"):
     driver.quit()
     
     return page_source
+
+
+def get_news_content(html_content):
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+    # print(html_content)
+    title = soup.title.string
+
+    # 查找所有<article>标签
+    article = soup.find_all('article')[0]
+
+    # 遍历并处理每一个<div>标签
+
+    text = ''
+
+    for div in article.find_all('p'):
+        text += div.text + '\n\n'
+
+    text = text.strip()
+
+    return {'title': title,
+            # 'url': url,
+            'content': text}
+
+
+def get_news(url):
+    return get_news_content(get_page(url))
+
+def extract_text_content(html_content):
+    doc = Document(html_content)
+    return doc.summary(html_partial=False)
+
+
+if __name__ == '__main__':
+    url = 'https://www.wsj.com/business/deals/investor-group-launches-5-8-billion-buyout-bid-for-macys-441ca24a?mod=hp_lead_pos1'
+
+    print(get_news(url))

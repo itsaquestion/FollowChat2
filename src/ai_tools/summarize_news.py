@@ -9,6 +9,8 @@ import re
 import textwrap
 from src.ai_tools.llm import *
 from src.ai_tools.break_sentences import add_pause
+from src.web_tools.get_page import get_news
+
 
 
 def remove_inner_content(text):
@@ -43,8 +45,8 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     请把上述新闻，写成3种英语学习材料。分步骤进行：
     
     step 1: 提取新闻的标题，总结成较短的标题
-    step 2: 新闻总结，专业英语，400单词，不超过2段。
-    step 3: 英语口语版本，使用风格：受过高等教育的人，告诉朋友或者听众新闻中的内容。
+    step 2: 新闻总结，专业英语，300单词，不超过2段。
+    step 3: 英语口语版本，CBS 60 minutes风格。
     step 4: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
     
     - generate 3 summeries, strict adherence to formatting examples.
@@ -52,11 +54,11 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     - Formatting Example:
     [Step 1: Relatively short Title]
     Title here
-    [Step 2: 400 words News Summary, professional English, no more than two paragraphs]
+    [Step 2: 300 words News Summary, professional English, no more than two paragraphs]
     summary here
-    [Step 3: Spoken English Version, in a tone of a well educated person who is talking to her friends.]
+    [Step 3: Spoken English Version, CBS 60 minutes style]
     summary here
-    [Step 4: words and phrases should be noticed for learners]
+    [Step 4: Words and phrases should be noticed for learners]
     word or phrase /phonetic if it's a word/: meaning in Chinese.
     """)
     
@@ -77,14 +79,14 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
            'raw': summaries}
     
     ret['spoken_pp'] = add_pause(ret['spoken'])
-
     return ret
 
 
 if __name__ == "__main__":
 
-    url = 'https://www.reuters.com/world/china/chinas-consumer-prices-fall-fastest-3-years-factory-gate-deflation-deepens-2023-12-09/'
+    url = 'https://www.reuters.com/markets/deals/tiktok-invest-15-bln-indonesias-goto-2023-12-11/'
     #url = 'https://www.reuters.com/world/china/chinas-largest-bank-icbc-hit-by-ransomware-software-ft-2023-11-09/'
-    print(url)
-    result = generate_multi_style_summaries(url, show=True)
-    # print(result)
+    content = get_news(url)
+    print(content)
+    #result = generate_multi_style_summaries(content, show=True)
+    #print(result)

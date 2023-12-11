@@ -1,25 +1,35 @@
 # %%
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
 from src.tts.audio_tools import merge_mp3_files_in_directory, combine_wav
-from src.web_tools import get_news_content
+
 from src.ai_tools.summarize_news import generate_multi_style_summaries
 from src.dialogue_script_processor import process_chat
 from src.tts.xttsv2 import script_to_wav_files
 from src.utils import *
 from datetime import datetime
 
+from src.news import get_news_content_reuters
+
 import os
 
+import requests
+from readability import Document
 
-def gen_audio_from_page(url, show=False):
+from bs4.element import Comment
+from bs4 import BeautifulSoup
+
+
+def gen_audio_from_page(content, show=False):
     """
     从新闻连接中生成音频文件
     """
 
     print('\n生成总结 =======')
 
-    content = url
-    if "bbc.com" in url:
-        get_news_content(url)
+    # content = get_news_content_reuters(url)
 
     multi_summaries = generate_multi_style_summaries(
         content, temp=0.2, show=show)
@@ -39,7 +49,7 @@ def gen_audio_from_page(url, show=False):
     print('\n处理对话 =======')
 
     new_script = process_chat('Voa: ' + multi_summaries['spoken_pp'])
-    new_script = 'Talor: ' + multi_summaries['title'] + '.\n' + new_script
+    new_script = 'Kathy: ' + multi_summaries['title'] + '.\n' + new_script
     print(new_script)
 
     print('\n生成音频 =======')
@@ -58,7 +68,9 @@ def gen_album(urls):
 
     # 对每一条新闻都生成脚本和音频
     for url in urls:
-        gen_audio_from_page(url, show=True)
+        print(url)
+        content = get_news_content_reuters(url)
+        gen_audio_from_page(content, show=True)
 
 
     # output下的音频拷贝到album
@@ -84,20 +96,5 @@ def gen_album(urls):
     #move_and_tag(merged_file, 'data/album', tag)
 
 if __name__ == "__main__":
-    
-
-    print('')
-    print('\n处理对话 =======')
-
-    new_script = process_chat('Voa: ' + multi_summaries['spoken_pp'])
-    new_script = 'Talor: ' + multi_summaries['title'] + '.\n' + new_script
-    print(new_script)
-
-    print('\n生成音频 =======')
-    script_to_wav_files(new_script)
-
-    print('\n合并音频 =======')
-
-    file_name = (base_name + '.mp3').replace('..', '.')
-    combine_wav(file_name)
-    print('完成')
+    url = 'https://www.bbc.com/news/world-australia-67609963'
+    gen_audio_from_page(url,show=True)

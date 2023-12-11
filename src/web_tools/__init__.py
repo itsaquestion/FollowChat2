@@ -1,1 +1,1 @@
-from .get_news_content import get_news_content
+from .get_page import get_news
