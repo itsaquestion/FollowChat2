@@ -7,7 +7,7 @@ from src.uploader import upload_all
 
 news_info = get_headlines_reuters()
 
-news_info = news_info.head(5)
+news_info = news_info.head(1)
 
 print(news_info)
 

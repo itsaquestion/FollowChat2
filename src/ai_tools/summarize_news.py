@@ -46,7 +46,7 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     
     step 1: 提取新闻的标题，总结成较短的标题
     step 2: 新闻总结，专业英语，300单词，不超过2段。
-    step 3: 英语口语版本，CBS 60 minutes风格。
+    step 3: 英语口语版本，CBS 60 minutes风格，非对话形式。
     step 4: 上述所有步骤中，英语学习者可能要注意的生词、短语和用法。包括中文解释。
     
     - generate 3 summeries, strict adherence to formatting examples.
@@ -56,7 +56,7 @@ def generate_multi_style_summaries(content,temp=0.2, show=True):
     Title here
     [Step 2: 300 words News Summary, professional English, no more than two paragraphs]
     summary here
-    [Step 3: Spoken English Version, CBS 60 minutes style]
+    [Step 3: Spoken English Version, CBS 60 minutes style, not chat, broadcast only]
     summary here
     [Step 4: Words and phrases should be noticed for learners]
     word or phrase /phonetic if it's a word/: meaning in Chinese.

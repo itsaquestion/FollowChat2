@@ -4,16 +4,15 @@ project:
 book:
   title: "News"
   author: "lee"
-  date: "2023-12-11"
+  date: "2023-12-12"
   chapters:
     - index.qmd
-    - 20231211-1856_News_Madoff Ponzi Scheme Fallout_ $14.6 Billion Recovered for Victims, Lawyers Awarded $1.5 Billion in Fees.md
-    - 20231211-1857_News_China and Vietnam to Strengthen Infrastructure and Digital Cooperation.md
-    - 20231211-1900_News_Bernie Madoff's Ponzi Scheme Fallout Continues.md
-    - 20231211-1901_News_China and Vietnam to Upgrade Rail Links and Strengthen Digital Cooperation.md
-    - 20231211-1902_News_Living Well in an Era of Slow Growth.md
-    - 20231211-1903_News_Investor Group Offers $5.8 Billion to Take Macy's Private.md
-    - 20231211-1905_News_TikTok to Buy Indonesian E-commerce Unit for $840 Million.md
+    - 20231212-0821_News_US Stocks Close at New Highs Ahead of Market Catalysts.md
+    - 20231212-0822_News_Zara Removes Controversial Ad Campaign.md
+    - 20231212-0823_News_South Korean Battery Makers Struggle to Compete with Chinese Rivals in Affordable Battery Market.md
+    - 20231212-0824_News_Investor Group Makes $5.8 Billion Offer to Take Macy's Private.md
+    - 20231212-0825_News_Occidental Petroleum to Acquire CrownRock in $12 Billion Deal.md
+    - 20231212-2128_News_Zara Regrets Controversial Ad Campaign.md
 
 
 format:
