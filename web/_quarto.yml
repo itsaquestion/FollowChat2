@@ -4,15 +4,11 @@ project:
 book:
   title: "News"
   author: "lee"
-  date: "2023-12-12"
+  date: "2023-12-26"
   chapters:
     - index.qmd
-    - 20231212-0821_News_US Stocks Close at New Highs Ahead of Market Catalysts.md
-    - 20231212-0822_News_Zara Removes Controversial Ad Campaign.md
-    - 20231212-0823_News_South Korean Battery Makers Struggle to Compete with Chinese Rivals in Affordable Battery Market.md
-    - 20231212-0824_News_Investor Group Makes $5.8 Billion Offer to Take Macy's Private.md
-    - 20231212-0825_News_Occidental Petroleum to Acquire CrownRock in $12 Billion Deal.md
-    - 20231212-2128_News_Zara Regrets Controversial Ad Campaign.md
+    - 20231226-2323_News_Israel grants Intel $3.2 billion for new $25 billion chip plant.md
+    - 20231226-2322_News_China criticizes US sanctions on Russia's Arctic LNG-2 project.md
 
 
 format:

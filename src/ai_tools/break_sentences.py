@@ -44,15 +44,10 @@ def create_prompt(sentences):
     summarize_prompt = align_multiline_text(f"""
         你是一名英语教育专家，特长是英语口语和写作的教育。请你帮我处理英语长句，在恰当的地方插入停顿符号，便于初学者阅读。
 
-        - 以下一篇文章的句子，采用Python的List格式。
-
-        ```
-        {sentences}
-        ```
         - 请判断每一个句子，如果句子有比较长或者复杂的复合结构，你就在其中加入停顿符'<pp>'，使之符合口语表达的停顿，便于英语初学者学习口语长句的说法。
         - 你的输出结果是添加了停顿符的句子。每行一句话，不要输出其他。
 
-        - 3 examples:
+        - 范例:
         - Input: The central bank has been gradually reducing its bond-buying program, and investors want to know if there will be any changes in the pace of this reduction or when interest rates might start going up.
         - Output: The central bank has been gradually reducing its bond-buying program<pp> and investors want to know if there will be any changes in the pace of this reduction<pp> or when interest rates might start going up.
         
@@ -61,13 +56,19 @@ def create_prompt(sentences):
         
         - Input: The emergence of this new COVID-19 variant has raised concerns about the possibility of renewed restrictions and disruptions to economic activity.
         - Output: The emergence of this new COVID-19 variant<pp> has raised concerns about the possibility of renewed restrictions and disruptions<pp> to economic activity.
+        
+        - 以下是一篇文章中的全部句子。请你按上述范例，为每一个句子添加可能的停顿符'<pp>'。
+
+        ```text
+        {sentences}
+        ```
         """
     )
     return summarize_prompt
 
 def add_pause(text):
 
-    sentences = sent_tokenize(text)
+    sentences = '\n'.join(sent_tokenize(text))
     prompt = create_prompt(sentences)
 
     print(prompt)
@@ -83,6 +84,6 @@ if __name__ == "__main__":
     """
 
     result = add_pause(text)
-    print('')
+    print('\n\n添加后：')
     print(result)
 

@@ -1,3 +1,4 @@
+# %%
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -33,7 +34,7 @@ def make_chrome_options():
 
 
 def init_chrome():
-    driver = webdriver.Chrome(options=make_chrome_options())
+    driver = webdriver.Remote(options=make_chrome_options(),command_executor='http://127.0.0.1:4444/wd/hub')
     driver.execute_script(
         "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
     )
@@ -68,7 +69,7 @@ def get_headlines_reuters():
 # print(get_headlines_reuters().head())
 
 
-def extract_main_content(url):
+def get_page_html(url):
     driver = init_chrome()
 
     try:
@@ -80,11 +81,7 @@ def extract_main_content(url):
         # 获取网页的HTML内容
         html = driver.page_source
 
-        # 使用readability解析HTML
-        doc = Document(html)
-        main_content = doc.summary()
-
-        return main_content
+        return html
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
@@ -122,12 +119,22 @@ def text_from_html(body):
 
 
 def get_news_content_reuters(url):
-    content = text_from_html(extract_main_content(url))
+    content = get_article_text(get_page_html(url))
     return content.split("Our Standards:")[0]
 
+def get_article_text(page_source):
+    soup = BeautifulSoup(page_source, 'html.parser')
+    article = soup.find("article")
+    title = soup.find("title").text
+    doc = Document(str(article))
+    text = text_from_html(doc.summary(html_partial=False))
+    return f"Title: {title}\n\n{text}"
 
-# 使用函数
-url = "https://www.reuters.com/world/asia-pacific/xi-visits-china-offers-rail-grants-vietnam-pushes-digital-silk-road-2023-12-11/"
+# %%
+if __name__ == "__main__":
 
-text = get_news_content_reuters(url)
-print(text)
+    # 使用函数
+    url = "https://www.reuters.com/business/energy/china-criticizes-us-sanctions-russias-arctic-lng-2-project-2023-12-26/"
+
+    text = get_news_content_reuters(url)
+    print(text)

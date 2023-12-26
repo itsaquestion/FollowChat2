@@ -1,10 +1,2 @@
-#!/bin/bash
-# Navigate to the script's directory
-cd "$(dirname "$0")"
-
-# Activate the virtual environment
-source ./venv/bin/activate
-
 # Run the Python script
-python ./gen_reuters.py
-
+cd "$(dirname "$0")" && /home/lee/anaconda3/envs/llmtts/bin/python gen_reuters.py

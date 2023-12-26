@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 # 添加上上层的到搜索路径
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
-def connect(hub_url = "http://localhost:4444/wd/hub", do_test=False):
+def connect(hub_url = "http://127.0.0.1:4444/wd/hub", do_test=False):
     
     # 配置 Chrome 浏览器选项
     chrome_options = Options()
@@ -54,7 +54,7 @@ def close_all_tabs(driver):
         driver.switch_to.window(handle)
         driver.close()
 
-def get_page(url, hub_url = "http://localhost:4444/wd/hub"):
+def get_page(url, hub_url = "http://127.0.0.1:4444/wd/hub"):
     driver = connect(hub_url)
 
     print("获取页面: " + url)
@@ -86,9 +86,7 @@ def get_news_content(html_content):
 
     text = text.strip()
 
-    return {'title': title,
-            # 'url': url,
-            'content': text}
+    return f"Title: {title}\n\n {text}"
 
 
 def get_news(url):

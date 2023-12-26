@@ -18,19 +18,15 @@ import sys
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# %%
-def load_StyleTTS2(package_path = 'D:\\tts\\StyleTTS2'):
-    last_wd = os.getcwd()
-    sys.path.append(package_path)
-    os.chdir(package_path)
-    from StyleTTS2 import StyleTTS2
 
-    tts = StyleTTS2()
+package_path = '../StyleTTS2'
+last_wd = os.getcwd()
+sys.path.append(package_path)
+os.chdir(package_path)
 
-    os.chdir(last_wd)
+import StyleTTS2 as style_tts
 
-    return tts
-
+os.chdir(last_wd)
 
 def wave_to_file(wav, file_path):
     rate = 24000  # 采样率
@@ -50,22 +46,21 @@ def wave_to_file(wav, file_path):
         wf.writeframes(wav_int16.tobytes())
 
 # print('load xtts_v2')
-# tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
-xtts_v2 = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+#tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+#xtts_v2 = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 
-# style_tts = load_StyleTTS2()
-
-# def tts_to_file(text, speaker_wav, file_path, backend =  None):
-#     # print(f'\n[TTS backend: {backend}]')
-#     if backend == 'style_tts2':
-#         ref_s = style_tts.compute_style(speaker_wav)
-#         wav = style_tts.inference(text, ref_s, alpha=0.3, beta=0.7, diffusion_steps=5, embedding_scale=1)
-#         wave_to_file(wav,file_path)
-#     else:
-#         xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
 
 def tts_to_file(text, speaker_wav, file_path, backend =  None):
-    xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
+    # print(f'\n[TTS backend: {backend}]')
+    #if backend == 'style_tts2':
+    ref_s = style_tts.compute_style(speaker_wav)
+    wav = style_tts.inference(text, ref_s, alpha=0.3, beta=0.7, diffusion_steps=5, embedding_scale=1)
+    wave_to_file(wav,file_path)
+    #else:
+    #    xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
+
+# def tts_to_file(text, speaker_wav, file_path, backend =  None):
+#     xtts_v2.tts_to_file(text=text, speaker_wav=speaker_wav, language="en", file_path=file_path )
 
 
 # %%
@@ -106,7 +101,10 @@ def script_to_wav_files(chat_script, output_dir='data/fragments', backend =  'st
         # tts.tts_to_file(text=text, speaker_wav=f"voices/{speaker}.wav", language="en", file_path=file_path )
         tts_to_file(text=text,speaker_wav=f"voices/{speaker}.wav", file_path=file_path, backend = backend)
 
+
 if __name__ == "__main__":
+
+    # %%
     import os
 
     # 获取当前文件的绝对路径
@@ -118,6 +116,6 @@ if __name__ == "__main__":
     # 更改当前工作目录
     # print(parent_parent_dir)
 
-    text  = "It is a repetitive, painful and familiar feeling for Gershkovich’s vast and close-knit network of friends. It has motivated The Wall Street Journal reporter’s friends who are pushing for his release, helping him stay connected to the outside world and keeping his name and plight on others’ minds."
-    
+    text  = "Voa:Hello world."
     script_to_wav_files(text)
+
