@@ -6,7 +6,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from src.tts.audio_tools import merge_mp3_files_in_directory, combine_wav
 
 from src.ai_tools.summarize_news import generate_multi_style_summaries
-from src.dialogue_script_processor import process_chat
+from src.dialogue_script_processor import process_chat, replace_dollar_amount, replace_us
 from src.tts.xttsv2 import script_to_wav_files
 from src.utils import *
 from datetime import datetime
@@ -39,9 +39,9 @@ def gen_audio_from_page(content, show=False):
 
     today = datetime.today()
     base_name = sanitize_filename(today.strftime(
-        "%Y%m%d-%H%M") + "_" + "News_" + multi_summaries['title']).replace('__','_').replace('_-','-')
+        "%Y%m%d-%H%M") + "_" + "News_" + multi_summaries['title']).replace('__','_').replace('_-','-').replace('%','')
 
-    file_name = (base_name + '.txt').replace('..', '.')
+    file_name = (base_name + '.txt').replace('..', '.').replace(',','_')
     with open('data/scripts/' + file_name, 'w', encoding='utf-8') as f:
         f.write(multi_summaries['raw'])
 
@@ -49,7 +49,9 @@ def gen_audio_from_page(content, show=False):
     print('\n处理对话 =======')
 
     new_script = process_chat('Voa: ' + multi_summaries['spoken_pp'])
-    new_script = 'Kathy: ' + multi_summaries['title'] + '.\n' + new_script
+
+    fixed_title = replace_dollar_amount(replace_us(multi_summaries['title']))
+    new_script = 'Kathy: ' + fixed_title + '.\n' + new_script
     print(new_script)
 
     print('\n生成音频 =======')
@@ -96,5 +98,5 @@ def gen_album(urls):
     #move_and_tag(merged_file, 'data/album', tag)
 
 if __name__ == "__main__":
-    url = 'https://www.bbc.com/news/world-australia-67609963'
+    url = 'https://www.reuters.com/legal/google-settles-5-billion-consumer-privacy-lawsuit-2023-12-28/'
     gen_audio_from_page(url,show=True)

@@ -134,7 +134,7 @@ def get_article_text(page_source):
 if __name__ == "__main__":
 
     # 使用函数
-    url = "https://www.reuters.com/business/energy/china-criticizes-us-sanctions-russias-arctic-lng-2-project-2023-12-26/"
-
+    url = "https://www.reuters.com/world/global-2024-staple-food-supplies-be-strained-by-dry-weather-export-curbs-2023-12-26/"
+    
     text = get_news_content_reuters(url)
     print(text)

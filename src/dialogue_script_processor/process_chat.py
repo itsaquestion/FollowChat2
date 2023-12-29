@@ -4,7 +4,8 @@
 见 process_chat()
 """
 import re
-
+from .replace_dollar_amount import replace_dollar_amount
+from .replace_us import replace_us
 
 def split_sentences(text):
     """
@@ -49,6 +50,7 @@ def split_sentences(text):
     final_sentences = [s for s in final_sentences if s]
     
     return final_sentences
+
 
 
 def split_by_comma(sentences):
@@ -132,7 +134,12 @@ def process_chat(chat_content):
 
         processed_lines += [name + ": " + sen for sen in sentences]
 
-    return '\n'.join(processed_lines)
+    result = '\n'.join(processed_lines)
+
+    result = replace_dollar_amount(result)
+    result = replace_us(result)
+
+    return result
 
 
 if __name__ == "__main__":
@@ -143,6 +150,5 @@ if __name__ == "__main__":
     chat_script = read_sample_chat()
     # print(process_chat(chat_script))
     
-    text = "Brazil's defense minister, Walter Braga Netto, is furious with Israel. He says they made a statement about a foiled Hezbollah attack <pp> that is completely false. According to the Israeli ambassador, Brazil knew about the attack <pp> but did nothing. Netto says this is a lie. He says Brazil was never informed about any attack plans. And he's not happy with Israel <pp> for making public statements without checking the facts first. Netto wants an explanation from Israel <pp> and he expects an apology. This whole situation has put a strain on the relationship between Brazil and Israel. Hezbollah, a group from Lebanon, is considered a terrorist organization by many countries, including the United States and Israel. Brazil is working with other countries <pp> to fight terrorism and keep its people safe."
-    
+    text = """General Motors (GM) has filed a lawsuit against the city of San Francisco, seeking to recover over $100 million in back taxes and penalties. The automaker alleges that it was charged a higher tax bill than it should have been due to the improper use of its Cruise self-driving car unit in the calculations. GM is requesting $108 million in back taxes for seven years, along with $13 million in penalties and interest. The company argues that Cruise operates separately from GM, generates minimal sales, and should not be used to calculate the parent company’s liabilities in the city. GM claims to have only sold about $677,000 worth of goods in San Francisco in 2022. The lawsuit comes as San Francisco faces an $800 million budget deficit and Mayor London Breed has asked city agencies to cut their budgets by 10%."""
     print(process_chat('Aria: '+ text))

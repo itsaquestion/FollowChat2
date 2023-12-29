@@ -4,11 +4,14 @@ project:
 book:
   title: "News"
   author: "lee"
-  date: "2023-12-26"
+  date: "2023-12-29"
   chapters:
     - index.qmd
-    - 20231226-2323_News_Israel grants Intel $3.2 billion for new $25 billion chip plant.md
-    - 20231226-2322_News_China criticizes US sanctions on Russia's Arctic LNG-2 project.md
+    - 20231229-1244_News_Google settles $5 billion privacy lawsuit.md
+    - 20231229-1250_News_Huawei Expects 9 Revenue Growth in 2023.md
+    - 20231229-1247_News_Elon Musk's X fails to block California's content moderation law.md
+    - 20231229-1246_News_Oil prices set to end 2023 with 10 annual decline.md
+    - 20231229-1248_News_Russia's LNG Export Plans Hindered by US Sanctions.md
 
 
 format:

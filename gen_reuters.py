@@ -1,8 +1,6 @@
 # %%
 import subprocess
 
-
-
 from src.dialogue_script_processor.script_to_md import conver_all_scripts
 
 from src.news import get_headlines_reuters
@@ -15,27 +13,27 @@ import sys
 import warnings
 
 
-# 保存原始的stdout
-original_stdout = sys.stdout
-original_filters = warnings.filters[:]
+# # 保存原始的stdout
+# original_stdout = sys.stdout
+# original_filters = warnings.filters[:]
 
-# 创建一个空的输出流，将其用于屏蔽输出
-null_output = open('/dev/null', 'w')  # On Windows, you can use 'nul' instead of '/dev/null'
+# # 创建一个空的输出流，将其用于屏蔽输出
+# null_output = open('/dev/null', 'w')  # On Windows, you can use 'nul' instead of '/dev/null'
 
-# 将stdout重定向到空的输出流
-sys.stdout = null_output
+# # 将stdout重定向到空的输出流
+# sys.stdout = null_output
 
-# 禁用所有警告
-warnings.simplefilter("ignore")
+# # 禁用所有警告
+# warnings.simplefilter("ignore")
 
 # 执行带有import语句的代码
 from src.gen_album import gen_album
 
-# 恢复原始的stdout
-sys.stdout = original_stdout
-warnings.filters = original_filters
-# 关闭空的输出流
-null_output.close()
+# # 恢复原始的stdout
+# sys.stdout = original_stdout
+# warnings.filters = original_filters
+# # 关闭空的输出流
+# null_output.close()
 
 def run_shell_command(command):
     try:
